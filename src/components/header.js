@@ -2,6 +2,8 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+import Nav from "../components/nav.js"
+
 const Header = ({ siteTitle }) => (
   <header
     style={{
@@ -16,17 +18,19 @@ const Header = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <h1>
         <Link
           to="/"
-          style={{
+
+          style={{            
             color: `white`,
             textDecoration: `none`,
           }}
         >
           {siteTitle}
         </Link>
-      </h1>
+      </h1>      
+      <Nav />
     </div>
   </header>
 )
