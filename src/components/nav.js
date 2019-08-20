@@ -16,7 +16,7 @@ const Nav = () => (
     <NavBar>        
         <NavLink to = "/page-2/" >Page 2</NavLink>
         &nbsp;|&nbsp;
-        <NavLink to = "/page-3/">Page 3</NavLink>
+        <NavLink to = "projects">Projects</NavLink>
         &nbsp;|&nbsp;
         <NavLink to = "blog">Blog</NavLink>
     </NavBar>
