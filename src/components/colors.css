@@ -1,0 +1,39 @@
+.darkBG { background-color: #2C2F33 }
+.darkerBG { background-color: #23272A }
+.grayerBG {  background-color: #99AAB5 }
+.whiteBG { background-color: white }
+
+.darkText { color: #2C2F33 }
+.darkerText { color: #23272A }
+.grayerText { color: #99AAB5 }
+.whiteText { color: white }
+
+.darkFill { fill: #2C2F33 }
+.darkerFill { fill: #23272A }
+.grayerFill { fill: #99AAB5 }
+.whiteFill { fill: white }
+
+.logo { 
+    fill: #23272A; 
+    transition: fill .15s ease-in;
+}
+.logo:hover, .logo.focus { 
+    fill: white;
+    transition: fill .15s ease-in;
+}
+
+.circle { 
+    fill: #99AAB5; 
+}
+.circle:hover, .circle:focus {
+    fill: #2C2F33;
+}
+
+/* .project {
+    background-image: linear-gradient(-80deg, #23272A, #2C2F33); 
+    transition: transform .15s ease-in;
+}
+.project.hover, .project.focus {
+    transform: translate(0.5rem, 0.5rem);
+    transition: transform .15s ease-in;
+} */

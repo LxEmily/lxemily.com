@@ -4,6 +4,9 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
+require('typeface-raleway')
+require('typeface-inconsolata')
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />

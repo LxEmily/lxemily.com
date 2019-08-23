@@ -40,52 +40,17 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-github',
-      options: {
-        headers: {
-          Authorization: `Bearer 576344f02092eadf6c74a659f91b62cb431c8c58`
-        },
-        queries: [
-          `{
-            user(login: "lxemily") {
-              repositories(first: 100, ownerAffiliations: [OWNER], 
-                orderBy: {field:UPDATED_AT, direction: DESC}) {
-                edges {
-                  node {
-                    ... on Repository {
-                      name
-                      description
-                      shortDescriptionHTML
-                      homepageUrl
-                      url
-                      updatedAt
-                      repositoryTopics(first: 10) {
-                        edges {
-                          node {
-                            topic {
-                              name
-                            }
-                          }
-                        }
-                      }
-                      languages(first: 10) {
-                        totalCount
-                        edges {
-                          node {
-                            name
-                            color
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }`
-        ]
-      }
-    }
+			resolve: 'gatsby-source-graphql',
+			options: {
+				typeName: 'GitHub',
+				fieldName: 'github',
+				url: 'https://api.github.com/graphql',
+				headers: {
+					Authorization: `bearer 576344f02092eadf6c74a659f91b62cb431c8c58`, // ${process.env.GITHUB_TOKEN}
+				},
+				fetchOptions: {},
+			},
+		},
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

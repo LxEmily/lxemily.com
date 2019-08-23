@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import 'tachyons';
-import Logo from "../components/icons/logo"
-import Icons from "../components/icons/icons"
+import React, { Component } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
+import 'tachyons'
+import LogoLink from "../components/icons/logoLink"
+import Icons from "../components/icons/icons.js"
 
 /** Projects Section
  * Container: Contains all projects
@@ -19,7 +20,7 @@ import Icons from "../components/icons/icons"
 
 /* Originally Repo List */
 const Container = styled.div.attrs({
-	className: `pb3 w-100 flex flex-wrap flex-row justify-center items-center`
+	className: `w-80-l w-100 center flex flex-wrap flex-row justify-center items-stretch darkerBG whiteText`
 })``
 
 const Title = styled.h2.attrs({
@@ -27,80 +28,145 @@ const Title = styled.h2.attrs({
 })``
 
 const Project = styled.div.attrs({
-	className: `ma2 pa2 shadow-4 br2 w5 h5 relative`
+	className: `ma2 pa3 shadow-4 br1 flex flex-column justify-between w-80-m w-25-l darkBG`
 })``
 
-/*
-const ProjectWrapper = styled.div.attrs({
-	className: "w5 h5 relative"
-})`` */
-
 const Header = styled.div.attrs({
-	className: `flex flex-nowrap flex-row justify-end items-center`
-})`
+	className: `flex flex-nowrap flex-row justify-end order-0 h3`
+})`	
 	/*background-image:*/
 `
 
+const Content = styled.div.attrs({
+	className: `order-1`
+})``
+
 const Name = styled.h3.attrs({
-	className: `mv0`
+	className: `mv3`
 })``
 
 const Desc = styled.p.attrs({
 	className: `lh-title`
-})``
+})`
+`
 
-const Footer = styled.span.attrs({
-	className: `w-100 absolute left-0 bottom-0 flex flex-nowrap flex-column`
-})``
+const Footer = styled.div.attrs({
+	className: `flex flex-nowrap flex-column order-2`
+})`
+`
 
 const Stars = styled.span.attrs({
-	className: `ph2 flex flex-nowrap items-center font-ubuntu-mono`
+	className: `ph2 flex flex-nowrap items-center code grayerFill grayerText`
 })``
 
 const Forks = styled.span.attrs({
-	className: `ph2 flex flex-nowrap items-center font-ubuntu-mono`
+	className: `ph2 flex flex-nowrap items-center code grayerFill grayerText`
 })``
 
 const FlexRow = styled.div.attrs({
 	className: `flex flex-nowrap flex-row`
 })``
 
-const FlexBetween = styled.span.attrs({
-	className: `flex flex-nowrap flex-row justify-between`
+const FlexEnd = styled.span.attrs({
+	className: `flex flex-nowrap flex-row justify-end`
 })``
 
-const Language = styled.span.attrs({
-	className: `f6 pr3 pv1`
+const Tech = styled.span.attrs({
+	className: `f6 pr2 pv1`
 })``
 
-const Languages = styled.div.attrs({
-	className: `pt1 font-ubuntu-mono flex flex-wrap flex-row`
-})``
+const TechList = styled.div.attrs({
+	className: `code flex flex-wrap flex-row grayerText`
+})`
+`
 
 const Projects = () => {
-    return (
+	const {
+		github: {
+			repositoryOwner: {
+				repositories: { edges },
+			},
+		}, //privacy: PUBLIC
+	} = useStaticQuery(graphql`
+		{
+			github {
+				repositoryOwner(login: "lxemily") {
+					repositories(
+						first: 10
+						ownerAffiliations: [OWNER]
+						orderBy: { field: UPDATED_AT, direction: DESC }
+					) {
+						edges {
+							node {
+								id
+								name
+								url
+								homepageUrl
+								description
+								shortDescriptionHTML
+								stargazers { totalCount }
+								forkCount
+								repositoryTopics(first: 3) {
+									edges {
+									  node {
+										topic { name }
+									  }
+									}
+								}
+								languages(first: 3) {
+									totalCount
+									edges {
+										node {
+											name
+											color
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	`)	
+	return (
         <Container>
             <Title>Projects</Title>
-			<Project>
-				<Header>
-					<FlexRow>
-						<Logo><Icons name="Github"></Icons></Logo>
-						<Logo><Icons name="External"></Icons></Logo>
-					</FlexRow>
-				</Header>
 
-				<Name>Name</Name>
-				<Desc>Description</Desc>
-
-				<Footer>
-					<FlexBetween>
+			{ edges.map(({ node }) => 
+				<Project>
+					<Header>
 						<FlexRow>
-							<Stars>star</Stars>
-							<Forks>fork</Forks>
+							{ node.url && (<LogoLink name="Github" url={ node.url } />) }
+							{ node.homepageUrl && (<LogoLink name="External" url={ node.homepageUrl } />) }
 						</FlexRow>
-					</FlexBetween>
-				</Footer>
-			</Project>
+					</Header>
+
+					<Content>
+						<Name>{ node.name }</Name>
+						<Desc>{ node.shortDescriptionHTML }</Desc>
+					</Content>
+					
+					<Footer>
+						<FlexEnd>
+							<FlexRow>
+								<Stars><Icons name="GithubStar" />{ node.stargazers.totalCount }</Stars>
+								<Forks><Icons name="GithubFork" />{ node.forkCount }</Forks>
+							</FlexRow>
+						</FlexEnd>
+						<TechList>
+                          {node.repositoryTopics.edges.map((topics, i) => (
+                            <Tech key={i}>{ topics.node.topic.name }</Tech>
+                          ))}
+                          {node.languages.edges.map((lang, i) => (
+                            <Tech key={i}>{lang.node.name.toLowerCase()}</Tech>
+                          ))}
+                        </TechList>
+					</Footer>
+				</Project>			
+			)}
+			
+
         </Container>
     )
 }
