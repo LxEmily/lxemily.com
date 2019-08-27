@@ -1,46 +1,59 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
+import 'tachyons'
+import "./colors.css"
 
-import Nav from "../components/nav.js"
+const Container = styled.div.attrs({
+    className: `flex flex-row flex-wrap justify-around items-center darkerBG code`
+})``
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1>
-        <Link
-          to="/"
+const LinksContainer = styled.div.attrs({
+    className: `flex flex-row flex-wrap items-center darkerBG code`
+})``
 
-          style={{            
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>      
-      <Nav />
-    </div>
-  </header>
+const Links = styled.a.attrs({
+    className: `pa3 f5 no-underline gitStats pointer`
+})``
+
+const HeaderLinks = ({ url, name }) => (
+    <Links href={ url } title={ name }>{ name }</Links>
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+const Header = ({ siteTitle }) => {
+    return (
+        <Container>
+            <HeaderLinks url={"/"} name={ siteTitle } />
+            <StaticQuery 
+                query={graphql`
+                    query NavContentQuery {
+                        contentJson {
+                            nav {
+                                tabs {
+                                    name
+                                    url
+                                }
+                            }
+                        }
+                    }
+                `}
 
-Header.defaultProps = {
-  siteTitle: ``,
+                render={data => ( 
+                    <LinksContainer>
+                        { getPages(data) }   
+                    </LinksContainer>       
+                )}
+            />
+        </Container>
+    )
 }
 
 export default Header
+
+function getPages(data) {
+    const array = []
+    data.contentJson.nav.tabs.forEach(item =>
+        array.push(<HeaderLinks name={ item.name } title={ item.name } url={ item.url } />)
+    )
+    return array
+}

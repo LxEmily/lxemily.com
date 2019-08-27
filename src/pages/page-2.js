@@ -1,14 +1,18 @@
 import React from "react"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+
+import Header from "../components/header"
+import Home from "../components/home"
+import Projects from "../components/projects"
+import Footer from "../components/footer"
 
 const SecondPage = () => (
-  <Layout>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-  </Layout>
+  <div>
+    <Header />
+    <Home />
+    <Projects />
+    <Footer />
+  </div>  
 )
 
 export default SecondPage
