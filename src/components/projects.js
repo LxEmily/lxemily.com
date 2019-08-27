@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import 'tachyons'
 import LogoLink from "../components/icons/logoLink"
 import Icons from "../components/icons/icons.js"
+import "./colors.css"
 
 /** Projects Section
  * Container: Contains all projects
@@ -14,21 +15,17 @@ import Icons from "../components/icons/icons.js"
  *   Footer: topics, languages
  */
 
-/* const Container = styled.div.attrs({
-	className: `w-80-l w-90 center`
-})`` */
-
 /* Originally Repo List */
 const Container = styled.div.attrs({
 	className: `w-80-l w-100 center flex flex-wrap flex-row justify-center items-stretch darkerBG whiteText`
 })``
 
 const Title = styled.h2.attrs({
-	className: `w-100 ma0 pa3 tc`
+	className: `w-100 mh5 pa3 tl`
 })``
 
 const Project = styled.div.attrs({
-	className: `ma2 pa3 shadow-4 br1 flex flex-column justify-between w-80-m w-25-l darkBG`
+	className: `ma2 pv2 ph3 shadow-4 br1 flex flex-column justify-between w-80-m w-30-l w-100 project`
 })``
 
 const Header = styled.div.attrs({
@@ -56,11 +53,11 @@ const Footer = styled.div.attrs({
 `
 
 const Stars = styled.span.attrs({
-	className: `ph2 flex flex-nowrap items-center code grayerFill grayerText`
+	className: `ph2 flex flex-nowrap items-center code logo gitStats`
 })``
 
 const Forks = styled.span.attrs({
-	className: `ph2 flex flex-nowrap items-center code grayerFill grayerText`
+	className: `ph2 flex flex-nowrap items-center code logo gitStats`
 })``
 
 const FlexRow = styled.div.attrs({
@@ -92,7 +89,7 @@ const Projects = () => {
 			github {
 				repositoryOwner(login: "lxemily") {
 					repositories(
-						first: 10
+						first: 6
 						ownerAffiliations: [OWNER]
 						orderBy: { field: UPDATED_AT, direction: DESC }
 					) {
@@ -106,14 +103,14 @@ const Projects = () => {
 								shortDescriptionHTML
 								stargazers { totalCount }
 								forkCount
-								repositoryTopics(first: 3) {
+								repositoryTopics(first: 4) {
 									edges {
 									  node {
 										topic { name }
 									  }
 									}
 								}
-								languages(first: 3) {
+								languages(first: 4) {
 									totalCount
 									edges {
 										node {
@@ -150,17 +147,17 @@ const Projects = () => {
 					<Footer>
 						<FlexEnd>
 							<FlexRow>
-								<Stars><Icons name="GithubStar" />{ node.stargazers.totalCount }</Stars>
-								<Forks><Icons name="GithubFork" />{ node.forkCount }</Forks>
+								<Stars title="GitHub Stars"><Icons name="GithubStar" />{ node.stargazers.totalCount }</Stars>
+								<Forks title="GitHub Forks"><Icons name="GithubFork" />{ node.forkCount }</Forks>
 							</FlexRow>
 						</FlexEnd>
 						<TechList>
-                          {node.repositoryTopics.edges.map((topics, i) => (
+                          { node.repositoryTopics.edges.map((topics, i) => (
                             <Tech key={i}>{ topics.node.topic.name }</Tech>
-                          ))}
-                          {node.languages.edges.map((lang, i) => (
+                          )) }
+                          { node.languages.edges.map((lang, i) => (
                             <Tech key={i}>{lang.node.name.toLowerCase()}</Tech>
-                          ))}
+                          )) }
                         </TechList>
 					</Footer>
 				</Project>			

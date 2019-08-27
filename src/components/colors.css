@@ -14,12 +14,21 @@
 .whiteFill { fill: white }
 
 .logo { 
-    fill: #23272A; 
+    fill: #99AAB5; 
     transition: fill .15s ease-in;
 }
 .logo:hover, .logo.focus { 
     fill: white;
     transition: fill .15s ease-in;
+}
+
+.gitStats {
+    color: #99AAB5; 
+    transition: color .15s ease-in;
+}
+.gitStats:hover, .gitStats:focus {    
+    color: white; 
+    transition: color .15s ease-in;
 }
 
 .circle { 
@@ -29,11 +38,40 @@
     fill: #2C2F33;
 }
 
-/* .project {
+.resumeBtn {    
+  padding: 14px 42px;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  background-color: #99AAB5;
+  color: #23272A; 
+  box-shadow:2px 2px 8px 0px rgba( 0, 0, 0, 0.2 );
+  transition: all .15s ease-in;
+}
+
+.resumeBtn:hover, .resumeBtn:focus {
+    color: #23272A; 
+    background-color: white;
+    transform: translateY(-2px);  	
+    box-shadow:2px 2px 12px 0px rgba( 0, 0, 0, 0.2 );
+    transition: all .15s ease-in;
+}
+
+.social-media {
+    fill: #99AAB5; 
+    transition: all .15s ease-in;
+}
+  
+.social-media:hover, .social-media:focus {
+    fill: white;
+    transition: all .15s ease-in;
+}
+
+.project {
     background-image: linear-gradient(-80deg, #23272A, #2C2F33); 
-    transition: transform .15s ease-in;
+    transition: all .15s ease-in;
 }
 .project.hover, .project.focus {
-    transform: translate(0.5rem, 0.5rem);
-    transition: transform .15s ease-in;
-} */
+    transform: translateY(-2px);
+    transition: all .15s ease-in;
+} 
