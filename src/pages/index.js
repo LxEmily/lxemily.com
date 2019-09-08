@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Home from "../components/home"
 import Projects from "../components/projects"
+import Footer from "../components/footer"
 import SEO from "../components/seo"
 
 require('typeface-raleway')
@@ -13,6 +14,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <Home />
     <Projects />
+    <Footer />
   </Layout>
 )
 

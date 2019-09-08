@@ -1,18 +1,13 @@
-import React from "react"
+import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import 'tachyons'
 import "./colors.css"
 import SocialMedia from "./socialmedia"
 
-// const Container = styled.div.attrs({
-//     className: `pv4 mt6 flex flex-row flex-wrap justify-around items-center darkBG code`
-// })``
-
 const Container = styled.div.attrs({
     className: `center w-70-l w-100 vh-50-l vh-75 flex flex-wrap flex-row justify-around items-center whiteText darkerBG`
-  })``
-  
+  })``  
 
 const RepoLink = styled.a.attrs({
     className: `no-underline gitStats pointer`
@@ -43,11 +38,11 @@ const Footer = () => {
                     query={graphql`
                         query FooterContentQuery {
                             contentJson {
-                                footer {
+                                contact {
                                     about
-                                    made_with
-                                    github_link_name
-                                    github_link_url
+                                    site
+                                    repo_name
+                                    repo_link
                                 }
                             }
                         }
@@ -55,12 +50,12 @@ const Footer = () => {
 
                 render={data => ( 
                     <>  
-                    <p>{ data.contentJson.footer.about }</p> 
+                    <p>{ data.contentJson.contact.about }</p> 
                     <p>
-                        { data.contentJson.footer.made_with }       
+                        { data.contentJson.contact.site }       
                         <MadeWithLove 
-                            url={ data.contentJson.footer.github_link_url }
-                            text={ data.contentJson.footer.github_link_name }
+                            url={ data.contentJson.contact.repo_link }
+                            text={ data.contentJson.contact.repo_name }
                         />
                     </p>   
                     </>             

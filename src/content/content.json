@@ -11,17 +11,11 @@
 
 	"home": {
 		"section": "Home",
-		"greeting": "Hello world, I'm",
 		"name": "Emily Liew Xuan.",
-		"short_desc": "Penultimate year Computer Science undergraduate at University College Dublin.",
-		"desc": "Third year UCD Computer Science undergraduate seeking internships for spring/summer 2020. ",
-		"button_msg": "Resume"
+		"desc": "Third year UCD Computer Science undergraduate seeking internships for spring/summer 2020. "
 	},
 
 	"nav": {
-		"logo": {
-			"url": "#home"
-		},
 		"tabs": [
 			{
 				"name": "Home",
@@ -42,35 +36,11 @@
 		]
 	},
 
-	"about": {
-		"section": "About me",
-		"descs": [
-			""
-		],
-		"tech_desc": "Competencies",
-		"categories": [
-			{
-				"category": "web",
-				"short_name": "Web",
-				"name": "Web Development",
-				"technologies": [
-				]
-			},
-			{
-				"category": "",
-				"short_name": "",
-				"name": "",
-				"technologies": [
-				]
-			}
-		]
-	},
-
 	"contact": {
-		"section": "Contact",
-		"title": "Contact",
-		"desc": "",
-		"location": "Dublin, Ireland",
+		"about": "Emily is an UCD CompSci undergrad, UCD NetSoc Treasurer, and MYSAI R&D Associate. She likes art, games, books, photography, and obviously tech.",
+		"site": "Made with Gatsby & uwus. ",
+		"repo_name": "Site repository here.",
+		"repo_link": "https://github.com/lxemily/lxemily.com",
 		"SocialMedia": [
 			{
 				"name": "Github",
@@ -95,51 +65,5 @@
 		]
 
 		
-	},
-
-	"projects": {
-		"section": "Projects",
-		"github_username": "lxemily",
-		"capitalizables": [],
-		"domains": []
-	},
-
-	"work": {
-		"section": "Work Experience",
-		"employments": [
-			{
-				"job_id": 0,
-				"company": "",
-				"companies_info": {
-					"ec": {
-						"name": "",
-						"url": "",
-						"url_desc": ""
-					}
-				},
-				"role": "",
-				"start_date": {
-					"year": 2000,
-					"month": 12
-				},
-				"end_date": {
-					"year": 2000,
-					"month": 12
-				},
-				"job_desc": [
-					
-				],
-				"achievements": [
-					
-				]
-			}
-		]
-	},
-
-	"footer": {
-		"about": "Emily is an UCD CompSci undergrad, UCD NetSoc Treasurer, and MYSAI R&D Associate. She likes art, games, books, photography, and obviously tech.",
-		"made_with": "Made with Gatsby & uwus. ",
-		"github_link_name": "Site repository here.",
-		"github_link_url": "https://github.com/lxemily/lxemily.com"
 	}
 }

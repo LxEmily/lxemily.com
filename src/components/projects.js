@@ -15,7 +15,6 @@ import "./colors.css"
  *   Footer: topics, languages
  */
 
-/* Originally Repo List */
 const Container = styled.div.attrs({
 	className: `w-80-l w-100 h-100 center flex flex-wrap flex-row justify-center items-stretch darkerBG whiteText`
 })``
@@ -81,16 +80,15 @@ const Projects = () => {
 	const {
 		github: {
 			repositoryOwner: {
-				repositories: { edges },
+				pinnedRepositories: { edges },
 			},
 		}, //privacy: PUBLIC
 	} = useStaticQuery(graphql`
 		{
 			github {
 				repositoryOwner(login: "lxemily") {
-					repositories(
-						first: 6
-						ownerAffiliations: [OWNER]
+					pinnedRepositories(
+						first: 3
 						orderBy: { field: UPDATED_AT, direction: DESC }
 					) {
 						edges {

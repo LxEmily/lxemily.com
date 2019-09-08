@@ -42,16 +42,6 @@ Icons.propTypes = {
 
 export default Icons
 
-// const Circle = () => {
-// 	return (
-// 		<GrayCircle cx="100" cy="100" r="0" />
-// 	)
-// }
-
-// const GrayCircle = styled.circle.attrs({
-//   className: `grayerFill`
-// })``
-
 const External = () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
       <title>External</title>

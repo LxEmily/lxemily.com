@@ -9,10 +9,6 @@ const Container = styled.div.attrs({
   className: `center w-75-l w-80 vh-100 flex flex-column justify-center whiteText darkerBG`
 })``
 
-// const Title = styled.h3.attrs({
-//   className: `normal grayerText`
-// })``
-
 const Name = styled.h1.attrs({
   className: `f1`
 })``
@@ -23,11 +19,7 @@ const Desc = styled.h3.attrs({
 
 const ResumeBtn = styled.button.attrs({
   className: `normal w-30-l w-auto mv4 br2 bn tracked resumeBtn ttu code f5`
-})`
-`
-
-// const SocialMedia = () => {}
-
+})``
 
 const Home = () => {
   return (
@@ -47,7 +39,6 @@ const Home = () => {
         <Container>
           <Name>{ data.contentJson.home.name }</Name>
           <Desc>{ data.contentJson.home.desc }</Desc>
-          {/* <ResumeBtn>Resume</ResumeBtn> */}
           <SocialMedia />
         </Container>
       )}

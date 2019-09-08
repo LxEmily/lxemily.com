@@ -5,7 +5,7 @@ import 'tachyons'
 import "./colors.css"
 
 const Container = styled.div.attrs({
-    className: `flex flex-row flex-wrap justify-around items-center darkerBG code`
+    className: `z-1 flex flex-row flex-wrap justify-around items-center darkerBG code`
 })``
 
 const LinksContainer = styled.div.attrs({
@@ -26,7 +26,7 @@ const Header = ({ siteTitle }) => {
             <HeaderLinks url={"/"} name={ siteTitle } />
             <StaticQuery 
                 query={graphql`
-                    query NavContentQuery {
+                    query HeaderContentQuery {
                         contentJson {
                             nav {
                                 tabs {
