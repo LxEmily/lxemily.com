@@ -14,6 +14,9 @@
 .whiteFill { fill: white }
 
 .logo { 
+    width: 3rem;
+    height: 3rem;
+    margin-right: -0.5rem;
     fill: #99AAB5; 
     transition: fill .15s ease-in;
 }
@@ -58,20 +61,43 @@
 }
 
 .social-media {
+    width: 3rem;
+    height: 3rem;
+    margin-right: -0.5rem;
     fill: #99AAB5; 
-    transition: all .15s ease-in;
+    animation: socialMediaHover .15s ease-in 0 1 normal none paused;
 }
   
 .social-media:hover, .social-media:focus {
     fill: white;
-    transition: all .15s ease-in;
+    animation: socialMediaHover .15s ease-in 0 1 normal none running;
+}
+
+@keyframes socialMediaHover {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-5px);
+    }
 }
 
 .project {
     background-image: linear-gradient(-80deg, #23272A, #2C2F33); 
+    box-shadow:2px 2px 8px 0px rgba( 0, 0, 0, 0.2 );
     transition: all .15s ease-in;
 }
-.project.hover, .project.focus {
-    transform: translateY(-2px);
+.project:hover, .project:focus {
+    transform: translateY(-5px);
+    background-blend-mode: screen;
+    box-shadow:2px 2px 12px 0px rgb( 0, 0, 0, 0.2 );
     transition: all .15s ease-in;
 } 
+
+.nav {
+    transition: all .15s ease-in;
+}
+
+.navBtn {
+    
+}

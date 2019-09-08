@@ -17,7 +17,7 @@ import "./colors.css"
 
 /* Originally Repo List */
 const Container = styled.div.attrs({
-	className: `w-80-l w-100 center flex flex-wrap flex-row justify-center items-stretch darkerBG whiteText`
+	className: `w-80-l w-100 h-100 center flex flex-wrap flex-row justify-center items-stretch darkerBG whiteText`
 })``
 
 const Title = styled.h2.attrs({
@@ -25,7 +25,7 @@ const Title = styled.h2.attrs({
 })``
 
 const Project = styled.div.attrs({
-	className: `ma2 pv2 ph3 shadow-4 br1 flex flex-column justify-between w-80-m w-30-l w-100 project`
+	className: `ma2 pv2 ph3 br1 flex flex-column justify-between w-80-m w-30-l w-100 project`
 })``
 
 const Header = styled.div.attrs({

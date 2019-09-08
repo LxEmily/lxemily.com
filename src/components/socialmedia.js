@@ -9,6 +9,24 @@ const Container = styled.div.attrs({
     className: `flex flex-row flex-wrap ma0`
 })``
 
+// const Link = styled.a.attrs({
+//     className: `no-underline`
+// })``
+
+// const SocialMediaLogo = styled.div.attrs({
+//     className: `social-media`
+// })``
+
+// const SocialMediaLinks = ({ name, url }) => {
+//     return (
+//         <Link href={ url } rel="noopener noreferrer" target="_blank">
+//             <SocialMediaLogo>
+//                 <Icons name={ name } />
+//             </SocialMediaLogo>
+//         </Link>
+//     )
+// }
+
 const SocialMedia = () => {
     return (
         <StaticQuery 

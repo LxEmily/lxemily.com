@@ -6,7 +6,7 @@ import "./colors.css"
 import SocialMedia from "./socialmedia"
 
 const Container = styled.div.attrs({
-  className: `ph7 w-80-l w-100 vh-100 flex flex-column justify-center whiteText darkerBG`
+  className: `center w-75-l w-80 vh-100 flex flex-column justify-center whiteText darkerBG`
 })``
 
 // const Title = styled.h3.attrs({

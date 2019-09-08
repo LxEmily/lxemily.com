@@ -137,7 +137,9 @@
 	},
 
 	"footer": {
-		"github_link_msg": "Made with uwus",
+		"about": "Emily is an UCD CompSci undergrad, UCD NetSoc Treasurer, and MYSAI R&D Associate. She likes art, games, books, photography, and obviously tech.",
+		"made_with": "Made with Gatsby & uwus. ",
+		"github_link_name": "Site repository here.",
 		"github_link_url": "https://github.com/lxemily/lxemily.com"
 	}
 }
