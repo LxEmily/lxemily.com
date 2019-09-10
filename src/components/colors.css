@@ -99,5 +99,5 @@
 }
 
 .navBtn {
-    
+    transition: all .15s ease-in;
 }

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Testing Gatsby`,
-    description: `Self explanatory.`,
+    title: `Emily Liew | Computer Science`,
+    description: `Penultimate year Computer Science undergraduate at University College Dublin seeking internships for spring/summer 2020.`,
     author: `@lxemily`,
   },
   plugins: [
@@ -30,13 +30,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `EmilyLiew`,
+        short_name: `EmilyLiew`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#23272A`,
+        theme_color: `#23272A`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/plant.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-transformer-json`,
