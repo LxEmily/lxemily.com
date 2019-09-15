@@ -30,7 +30,7 @@ const SocialMedia = () => {
                     { getSocialMedia(data) }
                 </Container>
             )}
-    />
+        />
     )
 }
 

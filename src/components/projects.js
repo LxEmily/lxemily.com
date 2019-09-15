@@ -16,15 +16,15 @@ import "./colors.css"
  */
 
 const Container = styled.div.attrs({
-	className: `w-80-l w-100 h-100 center flex flex-wrap flex-row justify-center items-stretch darkerBG whiteText`
+	className: `w-75-l w-80 h-100 center flex flex-wrap flex-row items-stretch darkerBG whiteText`
 })``
 
 const Title = styled.h2.attrs({
-	className: `w-100 mh5 pa3 tl`
+	className: `w-100`
 })``
 
 const Project = styled.div.attrs({
-	className: `ma2 pv2 ph3 br1 flex flex-column justify-between w-80-m w-30-l w-100 project`
+	className: `ma2 pv2 ph3 br1 flex flex-column justify-around w-30-l w-100 project`
 })``
 
 const Header = styled.div.attrs({

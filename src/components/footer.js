@@ -6,7 +6,7 @@ import "./colors.css"
 import SocialMedia from "./socialmedia"
 
 const Container = styled.div.attrs({
-    className: `center w-70-l w-100 vh-50-l vh-75 flex flex-wrap flex-row justify-around items-center whiteText darkerBG`
+    className: `center w-75-l w-80 vh-50-l vh-75 flex flex-wrap flex-row justify-between items-center whiteText darkerBG`
   })``  
 
 const RepoLink = styled.a.attrs({
@@ -14,18 +14,18 @@ const RepoLink = styled.a.attrs({
 })``
 
 const Desc = styled.div.attrs({
-    className: `w-50-l w-80 lh-copy`
+    className: `w-50-l w-100 lh-copy`
 })``
 
 const Contact = styled.div.attrs({
-    className: `center`
+    className: ``
 })``
 
-const Title = styled.p.attrs({
+const Title = styled.h2.attrs({
 	className: `w-100 tl b`
 })``
 
-const MadeWithLove = ({ url, text }) => (
+const SiteDetails = ({ url, text }) => (
     <RepoLink href={ url } rel="noopener noreferrer" target="_blank" title="Repository for this site">{ text }</RepoLink>
 )
 
@@ -53,7 +53,7 @@ const Footer = () => {
                     <p>{ data.contentJson.contact.about }</p> 
                     <p>
                         { data.contentJson.contact.site }       
-                        <MadeWithLove 
+                        <SiteDetails 
                             url={ data.contentJson.contact.repo_link }
                             text={ data.contentJson.contact.repo_name }
                         />
