@@ -23,7 +23,20 @@ module.exports = {
     /* Gets data inside files 
     (instead of just their node representation) 
     Converts markdown into frontmatter + html */
-    `gatsby-transformer-remark`, 
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+        {
+          resolve: "gatsby-remark-external-links",
+          options: {
+            target: "_blank",
+            rel: "nofollow noopener noreferrer"
+          }
+        }
+        ]
+      }
+    },
     `gatsby-transformer-sharp`, 
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
