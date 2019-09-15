@@ -1,19 +1,42 @@
 import React from "react"
 import { graphql } from "gatsby"
+import styled from "styled-components"
 import Layout from "../components/layout"
+import BlogContainer from "../components/blog/BlogContainer"
+import BlogNav from "../components/blog/BlogNav"
 
 export default ({ data }) => {
     const post = data.markdownRemark;
 
     return (
         <Layout>
-            <div>
-                <h1>{ post.frontmatter.title }</h1>
-                <div dangerouslySetInnerHTML={ { __html: post.html } }></div>
-            </div>
+            <BlogContainer>
+                <BlogNav />
+                <PostTitle>{ post.frontmatter.title }</PostTitle>
+                <PostDate>{ post.frontmatter.date }</PostDate>
+                <PostContents dangerouslySetInnerHTML={ { __html: post.html } }></PostContents>
+            </BlogContainer>
         </Layout>
     )
 }
+
+const PostTitle = styled.h1.attrs({
+    className: `mv3`
+})``
+
+const PostDate = styled.p.attrs({
+    className: `grayerText ma0 f5 i`
+})``
+
+const PostContents = styled.div.attrs({
+    className: `lh-copy mb4 mt3 f4 postContents`
+})`
+    a {
+        text-decoration: none;
+        color: #99AAB5;
+        transition: color .15s ease-in;
+    }
+`
 
 /* Retrieve the slug that matches a given $slug */
 export const query = graphql`
@@ -22,6 +45,7 @@ export const query = graphql`
             html
             frontmatter {
                 title
+                date(formatString: "MMMM DD, YYYY")
             }
         }
     }
