@@ -17,9 +17,9 @@ const Desc = styled.h3.attrs({
   className: `normal lh-title`
 })``
 
-const ResumeBtn = styled.button.attrs({
-  className: `normal w-30-l w-auto mv4 br2 bn tracked resumeBtn ttu code f5`
-})``
+// const ResumeBtn = styled.button.attrs({
+//   className: `normal w-30-l w-auto mv4 br2 bn tracked resumeBtn ttu code f5`
+// })``
 
 const Home = () => {
   return (
