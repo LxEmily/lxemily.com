@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import 'tachyons'
-import "../colors.css"
+import "../styles/colors.css"
 
 const Title = styled.h3.attrs({
     className: `center w-100 mv4 lh-copy`

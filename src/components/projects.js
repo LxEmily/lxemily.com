@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import 'tachyons'
 import LogoLink from "../components/icons/logoLink"
 import Icons from "../components/icons/icons.js"
-import "./colors.css"
+import "./styles/colors.css"
 
 /** Projects Section
  * Container: Contains all projects

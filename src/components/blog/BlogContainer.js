@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import 'tachyons'
-import "../colors.css"
+import "../styles/colors.css"
 
 const Container = styled.div.attrs({
     className: `center mv5 w-75-l w-80 flex flex-column justify-center whiteText darkerBG`

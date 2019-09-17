@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import 'tachyons'
-import "./colors.css"
+import "./styles/colors.css"
 import SocialMedia from "./socialmedia"
 
 const Container = styled.div.attrs({

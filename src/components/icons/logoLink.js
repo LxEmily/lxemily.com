@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Icons from "./icons"
-import "../colors.css"
+import "../styles/colors.css"
 
 const Link = styled.a.attrs({
     className: `no-underline`

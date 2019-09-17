@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import 'tachyons'
-import "./colors.css"
+import "./styles/colors.css"
 import LogoLink from "../components/icons/logoLink"
 
 const Container = styled.div.attrs({
