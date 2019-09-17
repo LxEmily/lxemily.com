@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Emily Liew <emily@lxemily.com>",
   "dependencies": {
+    "date-fns": "^2.2.1",
+    "fs": "0.0.1-security",
     "gatsby": "^2.13.45",
     "gatsby-image": "^2.2.7",
     "gatsby-plugin-manifest": "^2.2.4",
@@ -13,16 +15,19 @@
     "gatsby-plugin-sharp": "^2.2.9",
     "gatsby-plugin-styled-components": "^3.1.2",
     "gatsby-remark-external-links": "0.0.4",
+    "gatsby-remark-prismjs": "^3.3.13",
     "gatsby-source-filesystem": "^2.1.7",
     "gatsby-source-graphql": "^2.1.7",
     "gatsby-transformer-json": "^2.2.5",
-    "gatsby-transformer-remark": "^2.6.14",
+    "gatsby-transformer-remark": "^2.6.22",
     "gatsby-transformer-sharp": "^2.2.5",
+    "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "slug": "^1.1.0",
     "styled-components": "^4.3.2",
     "typeface-inconsolata": "0.0.72",
     "typeface-raleway": "0.0.75"
@@ -41,7 +46,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "new-post": "node ./scripts/new-post.js"
   },
   "repository": {
     "type": "git",
