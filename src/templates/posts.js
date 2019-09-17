@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import BlogContainer from "../components/blog/BlogContainer"
 import BlogNav from "../components/blog/BlogNav"
+import "../components/styles/syntax-highlighting.css"
 
 export default ({ data }) => {
     const post = data.markdownRemark;
@@ -29,12 +30,16 @@ const PostDate = styled.p.attrs({
 })``
 
 const PostContents = styled.div.attrs({
-    className: `lh-copy mb4 mt3 f4 postContents`
+    className: `lh-copy mb4 mt5 f4 postContents`
 })`
     a {
         text-decoration: none;
         color: #99AAB5;
         transition: color .15s ease-in;
+    }
+
+    a:hover, a:focus {        
+        color: white;
     }
 `
 

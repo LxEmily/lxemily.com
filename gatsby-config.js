@@ -33,6 +33,13 @@ module.exports = {
             target: "_blank",
             rel: "nofollow noopener noreferrer"
           }
+        },
+        {
+          resolve: `gatsby-remark-prismjs`,
+          options: {
+            noInlineHighlight: false,
+            inlineCodeMarker: `±`, 
+          },
         }
         ]
       }
