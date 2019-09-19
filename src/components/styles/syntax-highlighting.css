@@ -67,7 +67,6 @@ pre[class*='language-'] ::selection {
   color: white;
   padding: 0.15em 0.3em;
   white-space: normal;
-  font-size: 0.85em;
 }
 
 .token.attr-name {
@@ -150,7 +149,6 @@ pre[data-line] {
   /* margin-bottom: 1.75rem; */
   /* margin-left: -1.3125rem;
   margin-right: -1.3125rem; */
-  font-size: 0.85em;
   border-radius: 10px;
   background: #011627;
   -webkit-overflow-scrolling: touch;

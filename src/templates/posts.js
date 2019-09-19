@@ -30,7 +30,7 @@ const PostDate = styled.p.attrs({
 })``
 
 const PostContents = styled.div.attrs({
-    className: `lh-copy mb4 mt5 f4 postContents`
+    className: `lh-copy mb4 mt5 postContents`
 })`
     a {
         text-decoration: none;

@@ -1,7 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
-import BlogContainer from "./blog/BlogContainer"
+import IndexBlogContainer from "./blog/IndexBlogContainer"
 
 const Blog = () => {
     return (
@@ -14,7 +14,6 @@ const Blog = () => {
                             node {
                                 id
                                 frontmatter {
-                                    description
                                     title
                                     date(formatString: "MMMM DD, YYYY")
                                 }
@@ -29,7 +28,7 @@ const Blog = () => {
             `}
 
             render={data => (
-                <BlogContainer>
+                <IndexBlogContainer>
                     <Title>Blog</Title>
 
                     { data.allMarkdownRemark.edges.map(({ node }) => (
@@ -45,7 +44,7 @@ const Blog = () => {
                     )) }
                     
                     <StyledLink to="/blog"><ViewBlog>View more</ViewBlog></StyledLink>
-                </BlogContainer>
+                </IndexBlogContainer>
             )}
         />
     )

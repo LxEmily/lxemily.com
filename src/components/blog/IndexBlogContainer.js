@@ -4,10 +4,10 @@ import 'tachyons'
 import "../styles/colors.css"
 
 const Container = styled.div.attrs({
-    className: `center mv5 w-60-l w-80 flex flex-column justify-center whiteText darkerBG`
+    className: `center mv5 w-75-l w-80 flex flex-column justify-center whiteText darkerBG`
 })``
 
-class BlogContainer extends React.Component {
+class IndexBlogContainer extends React.Component {
     render() {
         return(
             <Container>
@@ -17,4 +17,4 @@ class BlogContainer extends React.Component {
     }
 }
 
-export default BlogContainer
+export default IndexBlogContainer

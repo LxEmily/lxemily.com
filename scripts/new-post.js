@@ -11,7 +11,7 @@ if (!title) {
   throw 'a title is required!'
 }
 const slug = slugify(title.toLowerCase())
-const date = dateFns.format(new Date(), 'yyyy-mm-dd')
+const date = dateFns.format(new Date(), 'yyyy-MM-dd')
 
 // where blog posts are stored
 const dir = `./src/blog-posts/${date}-${slug}`

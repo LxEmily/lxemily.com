@@ -42,7 +42,6 @@ export const query = graphql `
                 node {
                     id
                     frontmatter {
-                        description
                         title
                         date(formatString: "MMMM DD, YYYY")
                     }
@@ -81,6 +80,6 @@ const PostDate = styled.p.attrs({
 // `
 
 const PostExcerpt = styled.p.attrs({
-    className: `lh-copy mb4 mt2 f4`
+    className: `lh-copy mb4 mt2`
 })``
 
