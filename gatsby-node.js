@@ -7,21 +7,21 @@
 // You can delete this file if you're not using it
 
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+// const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-    const { createNodeField } = actions
-    if (node.internal.type == `MarkdownRemark`) {
-        /* slug = html link for the blog posts */
-        const slug = createFilePath({ node, getNode })
+// exports.onCreateNode = ({ node, getNode, actions }) => {
+//     const { createNodeField } = actions
+//     if (node.internal.type == `MarkdownRemark`) {
+//         /* slug = html link for the blog posts */
+//         const slug = createFilePath({ node, getNode })
         
-        createNodeField({
-            node, 
-            name: `slug`,
-            value: slug
-        })
-    }
-}
+//         createNodeField({
+//             node, 
+//             name: `slug`,
+//             value: slug
+//         })
+//     }
+// }
 
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
