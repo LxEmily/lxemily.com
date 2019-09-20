@@ -3,10 +3,15 @@ module.exports = {
     title: `Emily Liew | Computer Science`,
     description: `Penultimate year Computer Science undergraduate at University College Dublin seeking internships for spring/summer 2020.`,
     author: `@lxemily`,
+    siteUrl: `https://lxemily.com`,
   },
   plugins: [
-    `gatsby-plugin-slug`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`, 
+    `gatsby-transformer-json`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-slug`, 
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -21,6 +26,32 @@ module.exports = {
         path: `${__dirname}/src/blog-posts`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/content/`,
+      },
+    },
+    {
+			resolve: 'gatsby-source-graphql',
+			options: {
+				typeName: 'GitHub',
+				fieldName: 'github',
+				url: 'https://api.github.com/graphql',
+				headers: {
+					Authorization: `bearer 576344f02092eadf6c74a659f91b62cb431c8c58`, // ${process.env.GITHUB_TOKEN}
+				},
+				fetchOptions: {},
+			},
+    },
+    {
+			resolve: 'gatsby-plugin-sitemap',
+			options: {
+				createLinkInHead: true,
+			},
+    },
+    `gatsby-plugin-robots-txt`,
     /* Gets data inside files 
     (instead of just their node representation) 
     Converts markdown into frontmatter + html */
@@ -45,9 +76,6 @@ module.exports = {
         ]
       }
     },
-    `gatsby-transformer-sharp`, 
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -59,27 +87,11 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/plant.png`, // This path is relative to the root of the site.
       },
-    },
-    `gatsby-transformer-json`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: `${__dirname}/src/content/`,
-      },
-    },
-    {
-			resolve: 'gatsby-source-graphql',
-			options: {
-				typeName: 'GitHub',
-				fieldName: 'github',
-				url: 'https://api.github.com/graphql',
-				headers: {
-					Authorization: `bearer 576344f02092eadf6c74a659f91b62cb431c8c58`, // ${process.env.GITHUB_TOKEN}
-				},
-				fetchOptions: {},
-			},
-    },
+    },   
+    `gatsby-plugin-offline`,
+    
+    
+    
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
