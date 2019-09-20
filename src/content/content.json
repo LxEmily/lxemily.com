@@ -1,5 +1,6 @@
 {
 	"meta": {
+		"author": "Emily Liew",
 		"siteTitle": "Emily Liew",
 		"siteDescription":
 		  "Penultimate year Computer Science undergraduate at University College Dublin seeking internships for spring/summer 2020.",
@@ -62,7 +63,12 @@
 				"name": "Resume",
 				"url": "https://drive.google.com/file/d/17ElqP0tLtR9m3p0Kxz_AWUOqyu_ho5uJ/view?usp=sharing"
 			}
-		]
+		],
+		"handles" : {
+			"github": "@lxemily",
+			"twitter": "@lxemily_",
+			"email": "emily@lxemily.com"
+		}
 
 		
 	}

@@ -1,9 +1,18 @@
+const config = require("./src/content/content.json")
+
 module.exports = {
   siteMetadata: {
-    title: `Emily Liew | Computer Science`,
-    description: `Penultimate year Computer Science undergraduate at University College Dublin seeking internships for spring/summer 2020.`,
-    author: `@lxemily`,
-    siteUrl: `https://lxemily.com`,
+    title: config.meta.siteTitle,
+    description: config.meta.siteDescription,
+    author: config.meta.author,
+    siteUrl: config.meta.siteUrl,
+    language: config.meta.siteLanguage,
+    keywords: config.meta.siteKeywords,
+    social: {
+      twitter: config.contact.handles.twitter,
+      github: config.contact.handles.github,
+      email: config.contact.handles.email
+    }
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

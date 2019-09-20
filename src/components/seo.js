@@ -9,8 +9,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import siteImg from "../images/website.png"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, language, meta, title }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +20,13 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
+            language
+            social {
+              github
+              twitter
+              email
+            }
           }
         }
       }
@@ -29,16 +37,29 @@ function SEO({ description, lang, meta, title }) {
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      // titleTemplate={`%s | ${site.siteMetadata.title}`}
-      titleTemplate={`${site.siteMetadata.title}`}
+      htmlAttributes={ site.siteMetadata.language }
+      title={ site.siteMetadata.title }
+      titleTemplate={ `%s | ${ site.siteMetadata.title }` }
       meta={[
+        {
+          name: `title`,
+          content: site.siteMetadata.title
+        },
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `keywords`,
+          content: site.siteMetadata.keywords 
+        },
+        {
+          name: `image`,
+          content: siteImg 
+        },
+        {
+          property: `og:url`,
+          content: site.siteMetadata.siteUrl
         },
         {
           property: `og:title`,
@@ -53,20 +74,60 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:site_name`,
+          content: site.siteMetadata.title,
+        },
+        {
+          property: `og:image`,
+          content: siteImg
+        },  
+        {
+          property: `og:locale`,
+          content: site.siteMetadata.language
+        },
+        {
+          itemProp: `name`,
+          content: site.siteMetadata.title
+        },
+        {
+          itemProp: `description`,
+          content: site.siteMetadata.description
+        },
+        {
+          itemProp: `image`,
+          content: siteImg
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.social.twitter,
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: site.siteMetadata.title,
+        },
+        {
+          name: `twitter:site`,
+          content: site.siteMetadata.social.twitter
+        },
+        {
+          name: `twitter:url`,
+          content: site.siteMetadata.siteUrl
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: site.siteMetadata.description,
+        },
+        {
+          name: `twitter:image`,
+          content: siteImg
+        },
+        {
+          name: `twitter:image:alt`,
+          content: site.siteMetadata.title
         },
       ].concat(meta)}
     />
@@ -74,14 +135,14 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  language: `en`,
   meta: [],
   description: ``,
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
-  lang: PropTypes.string,
+  language: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 }
