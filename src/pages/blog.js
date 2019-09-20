@@ -1,59 +1,10 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogContainer from "../components/blog/BlogContainer"
 import BlogNav from "../components/blog/BlogNav"
-
-const Blog = ({ data }) => {
-    return (
-    <Layout>
-        <SEO title="Blog" />
-
-        <BlogContainer>
-            {/* <h4>{ data.allMarkdownRemark.totalCount } post(s)</h4> */}
-            <BlogNav />
-            { data.allMarkdownRemark.edges.map(({ node }) => (
-                <div key={ node.id }>
-                    <PostLink to={ node.fields.slug }>
-                        <PostTitle>
-                            { node.frontmatter.title }
-                        </PostTitle>
-                    </PostLink>
-                    <PostDate>{ node.frontmatter.date }</PostDate>
-                    {/* <PostDescription>{ node.frontmatter.description }</PostDescription> */}
-                    <PostExcerpt>{ node.excerpt }</PostExcerpt>
-                </div>
-            )) }
-        </BlogContainer>
-    </Layout>
-    )
-}
-
-export default Blog
-
-export const query = graphql `
-    query {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-            totalCount
-            edges {
-                node {
-                    id
-                    frontmatter {
-                        title
-                        date(formatString: "MMMM DD, YYYY")
-                    }
-                    fields {
-                        slug
-                    }
-                    excerpt
-                }
-            }
-        }
-    }
-`
 
 const PostLink = styled(Link)`
     text-decoration: none;
@@ -83,3 +34,54 @@ const PostExcerpt = styled.p.attrs({
     className: `lh-copy mb4 mt2`
 })``
 
+export const query = graphql `
+    query {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+            totalCount
+            edges {
+                node {
+                    id
+                    frontmatter {
+                        title
+                        date(formatString: "MMMM DD, YYYY")
+                    }
+                    fields {
+                        slug
+                    }
+                    excerpt(pruneLength: 200)
+                }
+            }
+        }
+    }
+`
+
+const Blog = ({ data }) => {
+    return (
+    <Layout>
+        <SEO 
+            title="Blog"
+            description="Emily Liew's Blog"
+            url="/blog" 
+        />
+
+        <BlogContainer>
+            {/* <h4>{ data.allMarkdownRemark.totalCount } post(s)</h4> */}
+            <BlogNav />
+            { data.allMarkdownRemark.edges.map(({ node }) => (
+                <div key={ node.id }>
+                    <PostLink to={ node.fields.slug }>
+                        <PostTitle>
+                            { node.frontmatter.title }
+                        </PostTitle>
+                    </PostLink>
+                    <PostDate>{ node.frontmatter.date }</PostDate>
+                    {/* <PostDescription>{ node.frontmatter.description }</PostDescription> */}
+                    <PostExcerpt>{ node.excerpt }</PostExcerpt>
+                </div>
+            )) }
+        </BlogContainer>
+    </Layout>
+    )
+}
+
+export default Blog

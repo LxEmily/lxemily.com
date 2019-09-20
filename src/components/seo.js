@@ -11,7 +11,7 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import siteImg from "../images/website.png"
 
-function SEO({ description, language, meta, title }) {
+function SEO({ description, image, meta, title, url, type }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -33,21 +33,22 @@ function SEO({ description, language, meta, title }) {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  // use specific metadata passed into this component, or the default one if none is passed
+  const desc = description || site.siteMetadata.description
+  const img = image || siteImg
+  const name = title + " | " + site.siteMetadata.title
+  const link = site.siteMetadata.siteUrl + url || site.siteMetadata.siteUrl
+  const contentType = type || `website`
 
   return (
     <Helmet
       htmlAttributes={ site.siteMetadata.language }
-      title={ site.siteMetadata.title }
-      titleTemplate={ `%s | ${ site.siteMetadata.title }` }
+      title={ name }
+      // titleTemplate={ `%s | ${ site.siteMetadata.title }` }
       meta={[
         {
-          name: `title`,
-          content: site.siteMetadata.title
-        },
-        {
           name: `description`,
-          content: metaDescription,
+          content: desc,
         },
         {
           name: `keywords`,
@@ -55,31 +56,31 @@ function SEO({ description, language, meta, title }) {
         },
         {
           name: `image`,
-          content: siteImg 
+          content: img 
         },
         {
           property: `og:url`,
-          content: site.siteMetadata.siteUrl
+          content: link
         },
         {
           property: `og:title`,
-          content: title,
+          content: name,
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: desc,
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: contentType,
         },
         {
           property: `og:site_name`,
-          content: site.siteMetadata.title,
+          content: name,
         },
         {
           property: `og:image`,
-          content: siteImg
+          content: img
         },  
         {
           property: `og:locale`,
@@ -87,15 +88,15 @@ function SEO({ description, language, meta, title }) {
         },
         {
           itemProp: `name`,
-          content: site.siteMetadata.title
+          content: name
         },
         {
           itemProp: `description`,
-          content: site.siteMetadata.description
+          content: desc
         },
         {
           itemProp: `image`,
-          content: siteImg
+          content: img
         },
         {
           name: `twitter:card`,
@@ -107,7 +108,7 @@ function SEO({ description, language, meta, title }) {
         },
         {
           name: `twitter:title`,
-          content: site.siteMetadata.title,
+          content: name,
         },
         {
           name: `twitter:site`,
@@ -115,19 +116,19 @@ function SEO({ description, language, meta, title }) {
         },
         {
           name: `twitter:url`,
-          content: site.siteMetadata.siteUrl
+          content: link
         },
         {
           name: `twitter:description`,
-          content: site.siteMetadata.description,
+          content: desc,
         },
         {
           name: `twitter:image`,
-          content: siteImg
+          content: img
         },
         {
           name: `twitter:image:alt`,
-          content: site.siteMetadata.title
+          content: name
         },
       ].concat(meta)}
     />
@@ -145,6 +146,7 @@ SEO.propTypes = {
   language: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 }
 
 export default SEO

@@ -2,24 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import BlogContainer from "../components/blog/BlogContainer"
 import BlogNav from "../components/blog/BlogNav"
 import "../components/styles/syntax-highlighting.css"
-
-export default ({ data }) => {
-    const post = data.markdownRemark;
-
-    return (
-        <Layout>
-            <BlogContainer>
-                <BlogNav />
-                <PostTitle>{ post.frontmatter.title }</PostTitle>
-                <PostDate>{ post.frontmatter.date }</PostDate>
-                <PostContents dangerouslySetInnerHTML={ { __html: post.html } }></PostContents>
-            </BlogContainer>
-        </Layout>
-    )
-}
 
 const PostTitle = styled.h1.attrs({
     className: `mv3`
@@ -48,10 +34,34 @@ export const query = graphql`
     query($slug: String!) {
         markdownRemark( fields: { slug: { eq: $slug } }) {
             html
+            excerpt
             frontmatter {
                 title
                 date(formatString: "MMMM DD, YYYY")
             }
+            fields {
+                slug
+            }
         }
     }
 `
+export default ({ data }) => {
+    const post = data.markdownRemark
+
+    return (
+        <Layout>
+            <SEO 
+                title={ post.frontmatter.title }
+                description={ post.excerpt }
+                url={ post.fields.slug }
+                type={`article`}
+            />
+            <BlogContainer>
+                <BlogNav />
+                <PostTitle>{ post.frontmatter.title }</PostTitle>
+                <PostDate>{ post.frontmatter.date }</PostDate>
+                <PostContents dangerouslySetInnerHTML={ { __html: post.html } }></PostContents>
+            </BlogContainer>
+        </Layout>
+    )
+}

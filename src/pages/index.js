@@ -1,5 +1,4 @@
 import React from "react"
-
 import Layout from "../components/layout"
 import Home from "../components/home"
 import Projects from "../components/projects"
@@ -12,7 +11,10 @@ require('typeface-inconsolata')
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO 
+      title="Home" 
+      url=""
+    />
     <Home />
     <Projects />
     <Blog />
