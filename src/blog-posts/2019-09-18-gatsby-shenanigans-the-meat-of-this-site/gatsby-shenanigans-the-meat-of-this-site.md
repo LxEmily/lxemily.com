@@ -30,7 +30,7 @@ A starter basically a working site without your content. Check the [docs](https:
 
 ## Features and how I got them
 
-Style wise, lots of Flexbox. I used [Tachyons](http://tachyons.io/) and [gatsby-plugin-styled-components](https://www.gatsbyjs.org/packages/gatsby-plugin-styled-components/) to style components directly.
+Style wise, lots of Flexbox. [CSS-tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) has a concise reference. I used [Tachyons](http://tachyons.io/) and [gatsby-plugin-styled-components](https://www.gatsbyjs.org/packages/gatsby-plugin-styled-components/) to style components directly.
 
 GraphQL is very powerful and confusing at first. It's used to query blog posts, site content, and GitHub info on this site. Head to `yourdevelopmentserver/___graphql` or [GitHub's explorer](https://developer.github.com/v4/explorer/) to explore queries for your Gatsby project or GitHub API. 
 
@@ -101,7 +101,7 @@ I'll probably update this post or post an update after implementing these.
 
 ### SEO, site metadata, robots.txt
 
-These aren't exactly set up yet... [Here's](https://flaviocopes.com/seo-for-developers/) another cool looking resource.
+These aren't exactly set up yet... Though it seems like a matter of configuring some Gatsby plugins.
 
 ## Shoutout
 
