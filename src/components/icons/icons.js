@@ -293,4 +293,3 @@ const Resume = () => (
         </g>
   </svg>
 );
-
