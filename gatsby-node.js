@@ -7,6 +7,9 @@
 // You can delete this file if you're not using it
 
 const path = require(`path`)
+
+// creates urls for posts through the directory, 
+// e.g. site.com/2019-09-21-post-title/post-title
 // const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // exports.onCreateNode = ({ node, getNode, actions }) => {

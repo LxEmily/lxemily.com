@@ -1,5 +1,9 @@
 const config = require("./src/content/content.json")
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: config.meta.siteTitle,
@@ -49,7 +53,7 @@ module.exports = {
 				fieldName: 'github',
 				url: 'https://api.github.com/graphql',
 				headers: {
-					Authorization: `bearer 576344f02092eadf6c74a659f91b62cb431c8c58`, // ${process.env.GITHUB_TOKEN}
+					Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
 				},
 				fetchOptions: {},
 			},

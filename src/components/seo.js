@@ -36,13 +36,14 @@ function SEO({ description, image, meta, title, url, type }) {
   // use specific metadata passed into this component, or the default one if none is passed
   const desc = description || site.siteMetadata.description
   const img = image || siteImg
-  const name = title + " | " + site.siteMetadata.title
-  const link = site.siteMetadata.siteUrl + url || site.siteMetadata.siteUrl
+  const name = `${title} | ${site.siteMetadata.title}`
+  const link = `${site.siteMetadata.siteUrl}${url}` || site.siteMetadata.siteUrl
   const contentType = type || `website`
+  const lang = site.siteMetadata.language || `en`
 
   return (
     <Helmet
-      htmlAttributes={ site.siteMetadata.language }
+      htmlAttributes={{ lang }}
       title={ name }
       // titleTemplate={ `%s | ${ site.siteMetadata.title }` }
       meta={[
@@ -84,7 +85,7 @@ function SEO({ description, image, meta, title, url, type }) {
         },  
         {
           property: `og:locale`,
-          content: site.siteMetadata.language
+          content: lang
         },
         {
           itemProp: `name`,
@@ -100,7 +101,7 @@ function SEO({ description, image, meta, title, url, type }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -136,14 +137,14 @@ function SEO({ description, image, meta, title, url, type }) {
 }
 
 SEO.defaultProps = {
-  language: `en`,
+  lang: `en`,
   meta: [],
   description: ``,
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
-  language: PropTypes.string,
+  lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
