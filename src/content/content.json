@@ -1,76 +1,85 @@
 {
-	"meta": {
-		"author": "Emily Liew",
-		"siteTitle": "Emily Liew",
-		"siteDescription":
-		  "Penultimate year Computer Science undergraduate at University College Dublin seeking internships for spring/summer 2020.",
-		"siteKeywords": [
-		  "Emily Liew", "Emily", "Liew", "Xuan", "lxemily", "software engineer", "computer science", "web developer", "刘萱", "劉萱", "UCD", "Netsoc" ],
-		"siteUrl": "https://lxemily.com",
-		"siteLanguage": "en",
-		"googleAnalytics": "UA-148439149-1"
-	},
+  "meta": {
+    "author": "Emily Liew",
+    "siteTitle": "Emily Liew",
+    "siteDescription": "Final year Computer Science undergraduate at University College Dublin seeking graduate roles for summer 2021. ",
+    "siteKeywords": [
+      "Emily Liew",
+      "Emily",
+      "Liew",
+      "Xuan",
+      "lxemily",
+      "software engineer",
+      "computer science",
+      "web developer",
+      "刘萱",
+      "劉萱",
+      "UCD",
+      "Netsoc"
+    ],
+    "siteUrl": "https://lxemily.com",
+    "siteLanguage": "en",
+    "googleAnalytics": "UA-148439149-1"
+  },
 
-	"home": {
-		"section": "Home",
-		"name": "Emily Liew Xuan.",
-		"desc": "Third year UCD Computer Science undergraduate seeking internships for spring/summer 2020. "
-	},
+  "home": {
+    "section": "Home",
+    "name": "Emily Liew Xuan.",
+    "desc": "Final year UCD Computer Science undergraduate seeking graduate roles for summer 2021. "
+  },
 
-	"nav": {
-		"tabs": [
-			{
-				"name": "Home",
-				"url": "#home"
-			},
-			{
-				"name": "Projects",
-				"url": "#projects"
-			},
-			{
-				"name": "Blog",
-				"url": "#blog"
-			},
-			{
-				"name": "Contact",
-				"url": "#contact"
-			}
-		]
-	},
+  "nav": {
+    "tabs": [
+      {
+        "name": "Home",
+        "url": "#home"
+      },
+      {
+        "name": "Projects",
+        "url": "#projects"
+      },
+      {
+        "name": "Blog",
+        "url": "#blog"
+      },
+      {
+        "name": "Contact",
+        "url": "#contact"
+      }
+    ]
+  },
 
-	"contact": {
-		"about": "Emily is an UCD CompSci undergrad, UCD NetSoc Treasurer, and MYSAI R&D Associate. She likes art, games, books, photography, and obviously tech.",
-		"site": "Made with Gatsby & uwus. ",
-		"repo_name": "Site repository here.",
-		"repo_link": "https://github.com/lxemily/lxemily.com",
-		"SocialMedia": [
-			{
-				"name": "Github",
-				"url": "https://github.com/lxemily/"
-		  	},
-		  	{
-				"name": "Linkedin",
-				"url": "https://www.linkedin.com/in/lxemily/"
-		  	},
-			{
-				"name": "Twitter",
-				"url": "https://twitter.com/lxemily_"
-		  	},
-			{
-				"name": "Email",
-				"url": "mailto: emily@lxemily.com"
-			},
-			{
-				"name": "Resume",
-				"url": "https://drive.google.com/file/d/17ElqP0tLtR9m3p0Kxz_AWUOqyu_ho5uJ/view?usp=sharing"
-			}
-		],
-		"handles" : {
-			"github": "@lxemily",
-			"twitter": "@lxemily_",
-			"email": "emily@lxemily.com"
-		}
-
-		
-	}
+  "contact": {
+    "about": "Emily is a UCD CompSci undergrad, UCD NetSoc Treasurer, and ex-QA intern. She likes art, games, books, photography, cute mechanical keyboards, and obviously tech.",
+    "site": "Made with GatsbyJS & uwus. ",
+    "repo_name": "Site repository here.",
+    "repo_link": "https://github.com/lxemily/lxemily.com",
+    "SocialMedia": [
+      {
+        "name": "Github",
+        "url": "https://github.com/lxemily/"
+      },
+      {
+        "name": "Linkedin",
+        "url": "https://www.linkedin.com/in/lxemily/"
+      },
+      {
+        "name": "Twitter",
+        "url": "https://twitter.com/lxemily_"
+      },
+      {
+        "name": "Email",
+        "url": "mailto: emily@lxemily.com"
+      },
+      {
+        "name": "Resume",
+        "url": "https://drive.google.com/file/d/17ElqP0tLtR9m3p0Kxz_AWUOqyu_ho5uJ/view?usp=sharing"
+      }
+    ],
+    "handles": {
+      "github": "@lxemily",
+      "twitter": "@lxemily_",
+      "email": "emily@lxemily.com"
+    }
+  }
 }
