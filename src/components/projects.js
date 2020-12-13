@@ -16,7 +16,7 @@ import "./styles/colors.css"
  */
 
 const Container = styled.div.attrs({
-	className: `w-75-l w-80 h-100 center flex flex-wrap flex-row items-stretch darkerBG whiteText`
+	className: `w-75-l w-80 h-100 center flex flex-wrap flex-row items-stretch justify-center darkerBG whiteText`
 })``
 
 const Title = styled.h2.attrs({
@@ -24,12 +24,12 @@ const Title = styled.h2.attrs({
 })``
 
 const Project = styled.div.attrs({
-	className: `ma2 pv2 ph3 br1 flex flex-column justify-around w-30-l w-100 project`
-})``
+	className: `ma2 pv2 ph3 br1 flex flex-column justify-around w-25-l w-40-m w-100 project`
+})`min-width:250px`
 
 const Header = styled.div.attrs({
 	className: `flex flex-nowrap flex-row justify-end order-0 h3`
-})`	
+})`
 	/*background-image:*/
 `
 
@@ -79,56 +79,56 @@ const TechList = styled.div.attrs({
 const Projects = () => {
 	const {
 		github: {
-			repositoryOwner: {
-				pinnedRepositories: { edges },
+			user: {
+				pinnedItems: { edges },
 			},
 		}, //privacy: PUBLIC
 	} = useStaticQuery(graphql`
 		{
 			github {
-				repositoryOwner(login: "lxemily") {
-					pinnedRepositories(
-						first: 3
-						orderBy: { field: UPDATED_AT, direction: DESC }
-					) {
-						edges {
-							node {
-								id
-								name
-								url
-								homepageUrl
-								description
-								shortDescriptionHTML
-								stargazers { totalCount }
-								forkCount
-								repositoryTopics(first: 4) {
-									edges {
-									  node {
-										topic { name }
-									  }
-									}
-								}
-								languages(first: 4) {
-									totalCount
-									edges {
-										node {
-											name
-											color
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+        user(login: "lxemily") {
+          pinnedItems(first: 4) {
+            edges {
+              node {
+                ... on GitHub_Repository {
+                  id
+                  name
+                  forkCount
+                  description
+                  shortDescriptionHTML
+                  stargazerCount
+                  url
+                  languages(first: 4) {
+                    totalCount
+                    edges {
+                      node {
+                        color
+                        name
+                      }
+                    }
+                  }
+                  repositoryTopics(first: 4) {
+                    edges {
+                      node {
+                        topic {
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
 		}
-	`)	
+	`)
 	return (
         <Container>
             <Title>Projects</Title>
 
-			{ edges.map(({ node }) => 
+			{ edges.map(({ node }) =>
 				<Project>
 					<Header>
 						<FlexRow>
@@ -141,26 +141,26 @@ const Projects = () => {
 						<Name>{ node.name }</Name>
 						<Desc>{ node.shortDescriptionHTML }</Desc>
 					</Content>
-					
+
 					<Footer>
 						<FlexEnd>
 							<FlexRow>
-								<Stars title="GitHub Stars"><Icons name="GithubStar" />{ node.stargazers.totalCount }</Stars>
+								<Stars title="GitHub Stars"><Icons name="GithubStar" />{ node.stargazerCount }</Stars>
 								<Forks title="GitHub Forks"><Icons name="GithubFork" />{ node.forkCount }</Forks>
 							</FlexRow>
 						</FlexEnd>
 						<TechList>
-                          { node.repositoryTopics.edges.map((topics, i) => (
-                            <Tech key={i}>{ topics.node.topic.name }</Tech>
-                          )) }
-                          { node.languages.edges.map((lang, i) => (
-                            <Tech key={i}>{lang.node.name.toLowerCase()}</Tech>
-                          )) }
-                        </TechList>
+              { node.repositoryTopics.edges.map((topics, i) => (
+                <Tech key={i}>{ topics.node.topic.name }</Tech>
+              )) }
+              { node.languages.edges.map((lang, i) => (
+                <Tech key={i}>{lang.node.name.toLowerCase()}</Tech>
+              )) }
+            </TechList>
 					</Footer>
-				</Project>			
+				</Project>
 			)}
-			
+
 
         </Container>
     )

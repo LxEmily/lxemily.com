@@ -21,10 +21,10 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
-    `gatsby-transformer-sharp`, 
+    `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-slug`, 
+    `gatsby-plugin-slug`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -47,13 +47,13 @@ module.exports = {
       },
     },
     {
-			resolve: 'gatsby-source-graphql',
+			resolve: `gatsby-source-graphql`,
 			options: {
-				typeName: 'GitHub',
+				typeName: `GitHub`,
 				fieldName: 'github',
-				url: 'https://api.github.com/graphql',
+				url: `https://api.github.com/graphql`,
 				headers: {
-					Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+					Authorization: `bearer ${process.env.GITHUB_TOKEN}`, //
 				},
 				fetchOptions: {},
 			},
@@ -65,8 +65,8 @@ module.exports = {
 			},
     },
     `gatsby-plugin-robots-txt`,
-    /* Gets data inside files 
-    (instead of just their node representation) 
+    /* Gets data inside files
+    (instead of just their node representation)
     Converts markdown into frontmatter + html */
     {
       resolve: `gatsby-transformer-remark`,
@@ -83,7 +83,7 @@ module.exports = {
           resolve: `gatsby-remark-prismjs`,
           options: {
             noInlineHighlight: false,
-            inlineCodeMarker: `±`, 
+            inlineCodeMarker: `±`,
           },
         }
         ]
@@ -100,7 +100,7 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/plant.png`, // This path is relative to the root of the site.
       },
-    },   
+    },
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -109,7 +109,7 @@ module.exports = {
         anonymize: true,
         respectDNT: true,
       },
-    }, 
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
