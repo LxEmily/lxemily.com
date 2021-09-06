@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import SEOComponent from "../components/seo"
 import BlogContainer from "../components/blog/BlogContainer"
 import BlogNav from "../components/blog/BlogNav"
 import "../components/styles/syntax-highlighting.css"
@@ -24,7 +24,7 @@ const PostContents = styled.div.attrs({
         transition: color .15s ease-in;
     }
 
-    a:hover, a:focus {        
+    a:hover, a:focus {
         color: white;
     }
 `
@@ -45,12 +45,12 @@ export const query = graphql`
         }
     }
 `
-export default ({ data }) => {
+const Posts = ({ data }) => {
     const post = data.markdownRemark
 
     return (
         <Layout>
-            <SEO 
+            <SEOComponent
                 title={ post.frontmatter.title }
                 description={ post.excerpt }
                 url={ post.fields.slug }
@@ -65,3 +65,5 @@ export default ({ data }) => {
         </Layout>
     )
 }
+
+export default Posts

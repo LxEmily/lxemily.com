@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import SEOComponent from "../components/seo"
 import styled from "styled-components"
 import 'tachyons'
 
@@ -32,7 +32,7 @@ const ErrorTitle = styled.h1.attrs({
 const NotFoundPage = () => (
   <Layout>
     <Container>
-      <SEO title="404 Not Found" />
+      <SEOComponent title="404 Not Found" />
       <ErrorTitle>404 NOT FOUND</ErrorTitle>
       <ErrorMessage>This ain't it chief. Check your URL.</ErrorMessage>
       <BackToHome to="/">Go Back Home</BackToHome>

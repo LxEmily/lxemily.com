@@ -11,7 +11,7 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import siteImg from "../images/website.png"
 
-function SEO({ description, image, meta, title, url, type }) {
+function SEOComponent({ description, image, meta, title, url, type }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -36,7 +36,7 @@ function SEO({ description, image, meta, title, url, type }) {
   // use specific metadata passed into this component, or the default one if none is passed
   const desc = description || site.siteMetadata.description
   const img = image || siteImg
-  const name = `${title} | ${site.siteMetadata.title}`
+  const name = (title ? `${title} | ${site.siteMetadata.title}` : site.siteMetadata.title)
   const link = `${site.siteMetadata.siteUrl}${url}` || site.siteMetadata.siteUrl
   const contentType = type || `website`
   const lang = site.siteMetadata.language || `en`
@@ -53,11 +53,11 @@ function SEO({ description, image, meta, title, url, type }) {
         },
         {
           name: `keywords`,
-          content: site.siteMetadata.keywords 
+          content: site.siteMetadata.keywords
         },
         {
           name: `image`,
-          content: img 
+          content: img
         },
         {
           property: `og:url`,
@@ -82,7 +82,7 @@ function SEO({ description, image, meta, title, url, type }) {
         {
           property: `og:image`,
           content: img
-        },  
+        },
         {
           property: `og:locale`,
           content: lang
@@ -136,13 +136,13 @@ function SEO({ description, image, meta, title, url, type }) {
   )
 }
 
-SEO.defaultProps = {
+SEOComponent.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
 }
 
-SEO.propTypes = {
+SEOComponent.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
@@ -150,4 +150,4 @@ SEO.propTypes = {
   url: PropTypes.string.isRequired,
 }
 
-export default SEO
+export default SEOComponent

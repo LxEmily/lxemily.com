@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import SEOComponent from "../components/seo"
 import BlogContainer from "../components/blog/BlogContainer"
 import BlogNav from "../components/blog/BlogNav"
 
@@ -58,10 +58,10 @@ export const query = graphql `
 const Blog = ({ data }) => {
     return (
     <Layout>
-        <SEO 
+        <SEOComponent
             title="Blog"
             description="Emily Liew's Blog"
-            url="/blog" 
+            url="/blog"
         />
 
         <BlogContainer>
