@@ -4,20 +4,25 @@ import Icons from "./icons"
 import "../styles/colors.css"
 
 const Link = styled.a.attrs({
-    className: `no-underline`
-})``
+  className: `no-underline`,
+})`
+  box-shadow: none;
+  &:hover {
+    box-shadow: none;
+  }
+`
 
 const Logo = styled.div.attrs({
-    className: `logo`
+  className: `logo`,
 })``
 
 const LogoLink = ({ name, url }) => {
-    return (
-        <Link href={ url } rel="noopener noreferrer" target="_blank">
-            <Logo>
-                <Icons name={ name } />
-            </Logo>
-        </Link>
-    )
+  return (
+    <Link href={url} rel="noopener noreferrer" target="_blank">
+      <Logo>
+        <Icons name={name} />
+      </Logo>
+    </Link>
+  )
 }
 export default LogoLink

@@ -4,7 +4,6 @@ import styled from "styled-components"
 import "tachyons"
 import "./styles/colors.css"
 import SocialMedia from "./socialmedia"
-import StyledLink from "./StyledLink"
 
 const Container = styled.div.attrs({
   className: `center vh-50-l vh-75 flex flex-wrap flex-row justify-between items-center whiteText darkerBG`,
@@ -14,7 +13,7 @@ const Container = styled.div.attrs({
 `
 
 const RepoLink = styled.a.attrs({
-  className: `no-underline gitStats pointer`,
+  className: ``,
 })``
 
 const Desc = styled.div.attrs({
@@ -63,15 +62,10 @@ const Footer = () => {
               {/* <p>{data.contentJson.contact.about}</p> */}
               <p>
                 Emily is a recent Computer Science graduate from{" "}
-                <StyledLink href="https://www.ucd.ie">
-                  University College Dublin
-                </StyledLink>
-                . Previously, she managed finances at{" "}
-                <StyledLink href="https://netsoc.com">
-                  UCD Internet Society
-                </StyledLink>{" "}
-                and QA-ed mobile apps at{" "}
-                <StyledLink href="https://ding.com">Ding.com</StyledLink>. She
+                <a href="https://www.ucd.ie">University College Dublin</a>.
+                Previously, she managed finances at{" "}
+                <a href="https://netsoc.com">UCD Internet Society</a> and QA-ed
+                mobile apps at <a href="https://ding.com">Ding.com</a>. She
                 likes playing Hades and Genshin Impact in her down time.
               </p>
               <p>

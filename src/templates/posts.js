@@ -17,18 +17,7 @@ const PostDate = styled.p.attrs({
 
 const PostContents = styled.div.attrs({
   className: `mb4 mt5 lh-copy`,
-})`
-  a {
-    text-decoration: none;
-    color: #99aab5;
-    transition: color 0.15s ease-in;
-  }
-
-  a:hover,
-  a:focus {
-    color: white;
-  }
-`
+})``
 
 /* Retrieve the slug that matches a given $slug */
 export const query = graphql`
@@ -46,9 +35,8 @@ export const query = graphql`
     }
   }
 `
-const Posts = ({ data }) => {
+const Posts = ({ location, data }) => {
   const post = data.markdownRemark
-
   return (
     <Layout>
       <SEOComponent
@@ -58,7 +46,7 @@ const Posts = ({ data }) => {
         type={`article`}
       />
       <BlogContainer>
-        <BlogNav />
+        <BlogNav location={location} />
         <PostTitle>{post.frontmatter.title}</PostTitle>
         <PostDate>{post.frontmatter.date}</PostDate>
         <PostContents

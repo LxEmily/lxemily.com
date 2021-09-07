@@ -7,17 +7,6 @@ const Title = styled.h2.attrs({
   className: `center w-100 mv4 lh-title`,
 })``
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: white;
-  transition: color 0.15s ease-in;
-
-  &:hover {
-    color: #99aab5;
-    transition: color 0.15s ease-in;
-  }
-`
-
 const PostTitle = styled.h3.attrs({
   className: `mv2`,
 })``
@@ -31,7 +20,7 @@ const PostExcerpt = styled.p.attrs({
 })``
 
 const ViewBlog = styled.p.attrs({
-  className: `mv2 f4`,
+  className: `mv2`,
 })``
 
 const Blog = () => {
@@ -66,17 +55,18 @@ const Blog = () => {
 
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div key={node.id}>
-              <StyledLink to={node.fields.slug}>
-                <PostTitle>{node.frontmatter.title}</PostTitle>
-              </StyledLink>
+              <PostTitle>
+                <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+              </PostTitle>
+
               <PostDate>{node.frontmatter.date}</PostDate>
               <PostExcerpt>{node.excerpt}</PostExcerpt>
             </div>
           ))}
 
-          <StyledLink to="/blog">
-            <ViewBlog>View more</ViewBlog>
-          </StyledLink>
+          <ViewBlog>
+            <Link to="/blog">View more →</Link>
+          </ViewBlog>
         </IndexBlogContainer>
       )}
     />

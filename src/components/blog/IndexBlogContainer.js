@@ -4,7 +4,7 @@ import "tachyons"
 import "../styles/colors.css"
 
 const Container = styled.div.attrs({
-  className: `center mv5 flex flex-column justify-center whiteText darkerBG`,
+  className: `center mv5 whiteText`,
 })`
   max-width: 42rem;
   padding: 0 2rem;
