@@ -4,10 +4,14 @@ import styled from "styled-components"
 import "tachyons"
 import "./styles/colors.css"
 import SocialMedia from "./socialmedia"
+import StyledLink from "./StyledLink"
 
 const Container = styled.div.attrs({
-  className: `center w-75-l w-80 vh-50-l vh-75 flex flex-wrap flex-row justify-between items-center whiteText darkerBG`,
-})``
+  className: `center vh-50-l vh-75 flex flex-wrap flex-row justify-between items-center whiteText darkerBG`,
+})`
+  max-width: 42rem;
+  padding: 0 2rem;
+`
 
 const RepoLink = styled.a.attrs({
   className: `no-underline gitStats pointer`,
@@ -56,7 +60,20 @@ const Footer = () => {
           `}
           render={(data) => (
             <>
-              <p>{data.contentJson.contact.about}</p>
+              {/* <p>{data.contentJson.contact.about}</p> */}
+              <p>
+                Emily is a recent Computer Science graduate from{" "}
+                <StyledLink href="https://www.ucd.ie">
+                  University College Dublin
+                </StyledLink>
+                . Previously, she managed finances at{" "}
+                <StyledLink href="https://netsoc.com">
+                  UCD Internet Society
+                </StyledLink>{" "}
+                and QA-ed mobile apps at{" "}
+                <StyledLink href="https://ding.com">Ding.com</StyledLink>. She
+                likes playing Hades and Genshin Impact in her down time.
+              </p>
               <p>
                 {data.contentJson.contact.site}
                 <SiteDetails
