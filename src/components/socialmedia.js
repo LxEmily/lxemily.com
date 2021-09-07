@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import "tachyons"
 import "./styles/colors.css"
+// import "./styles/glow.css"
 import LogoLink from "../components/icons/logoLink"
 
 const Container = styled.div.attrs({
@@ -36,5 +37,19 @@ function getSocialMedia(data) {
   data.contentJson.contact.SocialMedia.forEach((item) =>
     array.push(<LogoLink key={item.name} name={item.name} url={item.url} />)
   )
+  // data.contentJson.contact.SocialMedia.forEach((item) => {
+  //   item.name === "Resume"
+  //     ? array.push(
+  //         // <div className="glow">
+  //         <LogoLink
+  //           key={item.name}
+  //           name={item.name}
+  //           url={item.url}
+  //           className="glowing-icon"
+  //         />
+  //         // </div>
+  //       )
+  //     : array.push(<LogoLink key={item.name} name={item.name} url={item.url} />)
+  // })
   return array
 }

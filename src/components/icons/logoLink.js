@@ -16,12 +16,20 @@ const Logo = styled.div.attrs({
   className: `logo`,
 })``
 
-const LogoLink = ({ name, url }) => {
+const LogoLink = ({ name, url, className }) => {
   return (
-    <Link href={url} rel="noopener noreferrer" target="_blank">
-      <Logo>
+    <Link
+      href={url}
+      rel="noopener noreferrer"
+      target="_blank"
+      aria-label={name}
+      role="button"
+    >
+      <Logo className={className}>
         <Icons name={name} />
+        {/* <div className="name">{name}</div> */}
       </Logo>
+      {/* <span className="screen-reader-only">{name}</span> */}
     </Link>
   )
 }
