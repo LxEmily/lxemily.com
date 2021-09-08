@@ -6,7 +6,7 @@ import "./styles/colors.css"
 import SocialMedia from "./socialmedia"
 
 const Container = styled.div.attrs({
-  className: `center vh-50-l vh-75 flex flex-wrap flex-row justify-between items-center whiteText darkerBG`,
+  className: `center whiteText darkerBG mb5`,
 })`
   max-width: 42rem;
   padding: 0 2rem;
@@ -17,7 +17,7 @@ const RepoLink = styled.a.attrs({
 })``
 
 const Desc = styled.div.attrs({
-  className: `w-50-l w-100 lh-copy`,
+  className: `lh-copy mb2`,
 })``
 
 const Contact = styled.div.attrs({
@@ -61,15 +61,39 @@ const Footer = () => {
             <>
               {/* <p>{data.contentJson.contact.about}</p> */}
               <p>
-                Emily is a recent Computer Science graduate from{" "}
-                <a href="https://www.ucd.ie">University College Dublin</a>.
-                Previously, she managed finances at{" "}
-                <a href="https://netsoc.com">UCD Internet Society</a> and QA-ed
-                mobile apps at <a href="https://ding.com">Ding.com</a>. She
-                likes playing Hades and Genshin Impact in her down time.
+                Emily is a software engineer based in Dublin, Ireland.
+                Previously, she studied Computer Science at{" "}
+                <a
+                  href="https://www.ucd.ie/cs"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  UCD
+                </a>
+                , managed finances at{" "}
+                <a
+                  href="https://netsoc.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  UCD Netsoc
+                </a>
+                , and QA-ed mobile apps at{" "}
+                <a
+                  href="https://ding.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Ding.com
+                </a>
+                .
               </p>
               <p>
-                {data.contentJson.contact.site}
+                She thinks Hades, Genshin Impact, and mechanical keyboards are
+                cool. Her inbox is open for new opportunities and chit chat!
+              </p>
+              <p>
+                {/* {data.contentJson.contact.site} */}
                 <SiteDetails
                   url={data.contentJson.contact.repo_link}
                   text={data.contentJson.contact.repo_name}

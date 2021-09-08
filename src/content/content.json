@@ -2,7 +2,7 @@
   "meta": {
     "author": "Emily Liew",
     "siteTitle": "Emily Liew",
-    "siteDescription": "Final year Computer Science undergraduate at University College Dublin seeking graduate roles for summer 2021. ",
+    "siteDescription": "Software engineer seeking full time roles in Dublin, Ireland. Alumni of UCD Computer Science, UCD Netsoc, and Ding.com. (she/her).",
     "siteKeywords": [
       "Emily Liew",
       "Emily",
@@ -25,7 +25,7 @@
   "home": {
     "section": "Home",
     "name": "Emily Liew Xuan.",
-    "desc": "Final year UCD Computer Science undergraduate seeking graduate roles for summer 2021. "
+    "desc": "Software engineer seeking full-time roles in Dublin, Ireland. Alumni of UCD Computer Science, UCD Netsoc, and Ding.com. (she/her)."
   },
 
   "nav": {
@@ -50,9 +50,9 @@
   },
 
   "contact": {
-    "about": "Emily is a UCD CompSci undergrad, UCD NetSoc Treasurer, and ex-QA intern. She likes art, games, books, photography, cute mechanical keyboards, and obviously tech.",
-    "site": "Made with GatsbyJS & uwus. ",
-    "repo_name": "Site repository here.",
+    "about": "",
+    "site": "Made with GatsbyJS.",
+    "repo_name": "View site repository →",
     "repo_link": "https://github.com/lxemily/lxemily.com",
     "SocialMedia": [
       {
@@ -68,8 +68,12 @@
         "url": "https://twitter.com/lxemily_"
       },
       {
+        "name": "Polywork",
+        "url": "https://polywork.lxemily.com"
+      },
+      {
         "name": "Email",
-        "url": "mailto: emily@lxemily.com"
+        "url": "mailto: hello@lxemily.com"
       },
       {
         "name": "Resume",
@@ -79,7 +83,7 @@
     "handles": {
       "github": "@lxemily",
       "twitter": "@lxemily_",
-      "email": "emily@lxemily.com"
+      "email": "hello@lxemily.com"
     }
   }
 }
