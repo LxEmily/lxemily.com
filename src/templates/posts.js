@@ -12,11 +12,11 @@ const PostTitle = styled.h1.attrs({
 })``
 
 const PostDate = styled.p.attrs({
-  className: `grayerText ma0 f5 i`,
+  className: `grayerText pt0 ma0 f6 i`,
 })``
 
 const PostContents = styled.div.attrs({
-  className: `mb4 mt5 lh-copy`,
+  className: `mv4 lh-copy`,
 })``
 
 /* Retrieve the slug that matches a given $slug */
