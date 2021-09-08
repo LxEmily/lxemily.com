@@ -4,15 +4,16 @@ import Home from "../components/home"
 import Projects from "../components/projects"
 import Blog from "../components/blog"
 import Footer from "../components/footer"
-import SEO from "../components/seo"
+import SEOComponent from "../components/seo"
 
+import "@fontsource/inter"
 require('typeface-raleway')
 require('typeface-inconsolata')
 
 const IndexPage = () => (
   <Layout>
-    <SEO 
-      title="Home" 
+    <SEOComponent
+      title=""
       url=""
     />
     <Home />

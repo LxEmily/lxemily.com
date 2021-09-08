@@ -1,20 +1,23 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import 'tachyons'
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
+import "tachyons"
 import "./styles/colors.css"
 import SocialMedia from "./socialmedia"
 
 const Container = styled.div.attrs({
-  className: `center w-75-l w-80 vh-100 flex flex-column justify-center whiteText darkerBG`
-})``
+  className: `center vh-100 flex flex-column justify-center whiteText darkerBG`,
+})`
+  max-width: 42rem;
+  padding: 0 2rem;
+`
 
 const Name = styled.h1.attrs({
-  className: `f1`
+  className: `f2`,
 })``
 
-const Desc = styled.h3.attrs({
-  className: `normal lh-title`
+const Desc = styled.p.attrs({
+  className: `normal lh-copy`,
 })``
 
 // const ResumeBtn = styled.button.attrs({
@@ -23,7 +26,7 @@ const Desc = styled.h3.attrs({
 
 const Home = () => {
   return (
-    <StaticQuery 
+    <StaticQuery
       query={graphql`
         query HomeContentQuery {
           contentJson {
@@ -34,16 +37,15 @@ const Home = () => {
           }
         }
       `}
-
-      render={data => (
+      render={(data) => (
         <Container>
-          <Name>{ data.contentJson.home.name }</Name>
-          <Desc>{ data.contentJson.home.desc }</Desc>
+          <Name>{data.contentJson.home.name}</Name>
+          <Desc>{data.contentJson.home.desc}</Desc>
           <SocialMedia />
         </Container>
       )}
     />
   )
-};  
-  
+}
+
 export default Home

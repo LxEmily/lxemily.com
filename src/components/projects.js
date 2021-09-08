@@ -1,7 +1,7 @@
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import 'tachyons'
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
+import "tachyons"
 import LogoLink from "../components/icons/logoLink"
 import Icons from "../components/icons/icons.js"
 import "./styles/colors.css"
@@ -16,76 +16,92 @@ import "./styles/colors.css"
  */
 
 const Container = styled.div.attrs({
-	className: `w-75-l w-80 h-100 center flex flex-wrap flex-row items-stretch justify-center darkerBG whiteText`
-})``
+  className: `h-100 center darkerBG whiteText`,
+})`
+  max-width: 42rem;
+  padding: 0 2rem;
+`
 
 const Title = styled.h2.attrs({
-	className: `w-100`
+  className: `w-100`,
 })``
 
+const ProjectGrid = styled.div.attrs({})`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+  gap: 15px;
+`
+
 const Project = styled.div.attrs({
-	className: `ma2 pv2 ph3 br1 flex flex-column justify-around w-25-l w-40-m w-100 project`
-})`min-width:250px`
+  className: `w-100 br1 flex flex-column justify-around project`,
+})`
+  min-height: 20em;
+  padding: 1.65em 1.45em;
+`
 
 const Header = styled.div.attrs({
-	className: `flex flex-nowrap flex-row justify-end order-0 h3`
+  className: `flex flex-nowrap justify-between mt2 mb3`,
 })`
-	/*background-image:*/
+  /*background-image:*/
 `
 
 const Content = styled.div.attrs({
-	className: `order-1`
+  className: ``,
 })``
 
-const Name = styled.h3.attrs({
-	className: `mv3`
-})``
+const NameContainer = styled.h3.attrs({
+  className: `lh-solid mb0 flex justify-center items-center`,
+})`
+  min-height: 3rem;
+`
 
 const Desc = styled.p.attrs({
-	className: `lh-title`
-})`
-`
+  className: `lh-copy`,
+})``
 
 const Footer = styled.div.attrs({
-	className: `flex flex-nowrap flex-column order-2`
-})`
-`
+  className: `flex flex-nowrap flex-column order-2`,
+})``
 
 const Stars = styled.span.attrs({
-	className: `ph2 flex flex-nowrap items-center code logo gitStats`
+  className: `ph2 flex flex-nowrap items-center code logo gitStats`,
 })``
 
 const Forks = styled.span.attrs({
-	className: `ph2 flex flex-nowrap items-center code logo gitStats`
+  className: `ph2 flex flex-nowrap items-center code logo gitStats`,
 })``
 
 const FlexRow = styled.div.attrs({
-	className: `flex flex-nowrap flex-row`
+  className: `flex flex-nowrap flex-row`,
 })``
 
 const FlexEnd = styled.span.attrs({
-	className: `flex flex-nowrap flex-row justify-end`
+  className: `flex flex-nowrap flex-row justify-end`,
 })``
 
 const Tech = styled.span.attrs({
-	className: `f6 pr2 pv1`
+  className: `pr2 pv1`,
 })``
 
 const TechList = styled.div.attrs({
-	className: `code flex flex-wrap flex-row grayerText`
+  className: `flex flex-wrap flex-row grayerText`,
 })`
+  font-family: "Fantasque Sans Mono", "Inconsolata", "SFMono-Regular", Consolas,
+    "Roboto Mono", "Droid Sans Mono", "Liberation Mono", Menlo, Courier,
+    monospace;
+  font-size: 0.8em;
 `
 
 const Projects = () => {
-	const {
-		github: {
-			user: {
-				pinnedItems: { edges },
-			},
-		}, //privacy: PUBLIC
-	} = useStaticQuery(graphql`
-		{
-			github {
+  const {
+    github: {
+      user: {
+        pinnedItems: { edges },
+      },
+    }, //privacy: PUBLIC
+  } = useStaticQuery(graphql`
+    {
+      github {
         user(login: "lxemily") {
           pinnedItems(first: 4) {
             edges {
@@ -98,6 +114,7 @@ const Projects = () => {
                   shortDescriptionHTML
                   stargazerCount
                   url
+                  homepageUrl
                   languages(first: 4) {
                     totalCount
                     edges {
@@ -122,48 +139,66 @@ const Projects = () => {
           }
         }
       }
-		}
-	`)
-	return (
-        <Container>
-            <Title>Projects</Title>
+    }
+  `)
+  return (
+    <Container>
+      <Title>Projects</Title>
+      <ProjectGrid>
+        {edges.map(({ node }) => (
+          <Project key={node.id}>
+            <Header>
+              {/* <FlexRow> */}
+              <NameContainer>{node.name}</NameContainer>
+              <div className="flex flex-row items-center justify-center">
+                {node.url && <LogoLink name="Github" url={node.url} />}
+                {node.homepageUrl && (
+                  <LogoLink name="External" url={node.homepageUrl} />
+                )}
+              </div>
+              {/* </FlexRow> */}
+            </Header>
 
-			{ edges.map(({ node }) =>
-				<Project>
-					<Header>
-						<FlexRow>
-							{ node.url && (<LogoLink name="Github" url={ node.url } />) }
-							{ node.homepageUrl && (<LogoLink name="External" url={ node.homepageUrl } />) }
-						</FlexRow>
-					</Header>
+            <Content>
+              <Desc>{node.shortDescriptionHTML}</Desc>
+            </Content>
 
-					<Content>
-						<Name>{ node.name }</Name>
-						<Desc>{ node.shortDescriptionHTML }</Desc>
-					</Content>
-
-					<Footer>
-						<FlexEnd>
-							<FlexRow>
-								<Stars title="GitHub Stars"><Icons name="GithubStar" />{ node.stargazerCount }</Stars>
-								<Forks title="GitHub Forks"><Icons name="GithubFork" />{ node.forkCount }</Forks>
-							</FlexRow>
-						</FlexEnd>
-						<TechList>
-              { node.repositoryTopics.edges.map((topics, i) => (
-                <Tech key={i}>{ topics.node.topic.name }</Tech>
-              )) }
-              { node.languages.edges.map((lang, i) => (
-                <Tech key={i}>{lang.node.name.toLowerCase()}</Tech>
-              )) }
-            </TechList>
-					</Footer>
-				</Project>
-			)}
-
-
-        </Container>
-    )
+            <Footer>
+              {/* <FlexEnd>
+                <FlexRow>
+                  <Stars title="GitHub Stars">
+                    <Icons name="GithubStar" />
+                    {node.stargazerCount}
+                  </Stars>
+                  <Forks title="GitHub Forks">
+                    <Icons name="GithubFork" />
+                    {node.forkCount}
+                  </Forks>
+                </FlexRow>
+              </FlexEnd> */}
+              <TechList>
+                {node.repositoryTopics.edges.map((topics, i) => (
+                  <Tech key={i}>{topics.node.topic.name}</Tech>
+                ))}
+                {/* {node.languages.edges.map((lang, i) => (
+                  <Tech key={i}>{lang.node.name.toLowerCase()}</Tech>
+                ))} */}
+              </TechList>
+            </Footer>
+          </Project>
+        ))}
+      </ProjectGrid>
+      <p className="mv3">
+        <a
+          href="https://github.com/lxemily"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          View more projects →
+        </a>
+      </p>
+    </Container>
+  )
 }
 
 export default Projects

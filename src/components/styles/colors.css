@@ -1,78 +1,124 @@
-.darkBG { background-color: #2C2F33 }
-.darkerBG { background-color: #23272A }
-.grayerBG {  background-color: #99AAB5 }
-.whiteBG { background-color: white }
-
-.darkText { color: #2C2F33 }
-.darkerText { color: #23272A }
-.grayerText { color: #99AAB5 }
-.whiteText { color: white }
-
-.darkFill { fill: #2C2F33 }
-.darkerFill { fill: #23272A }
-.grayerFill { fill: #99AAB5 }
-.whiteFill { fill: white }
-
-.logo { 
-    width: 3rem;
-    height: 3rem;
-    margin-right: -0.5rem;
-    fill: #99AAB5; 
-    transition: fill .15s ease-in;
+.darkBG {
+  background-color: #2c2f33;
 }
-.logo:hover, .logo.focus { 
-    fill: white;
-    transition: fill .15s ease-in;
+.darkerBG {
+  background-color: #23272a;
+}
+.grayerBG {
+  background-color: #99aab5;
+}
+.whiteBG {
+  background-color: white;
+}
+
+.darkText {
+  color: #2c2f33;
+}
+.darkerText {
+  color: #23272a;
+}
+.grayerText {
+  color: #99aab5;
+}
+.whiteText {
+  color: white;
+}
+
+.darkFill {
+  fill: #2c2f33;
+}
+.darkerFill {
+  fill: #23272a;
+}
+.grayerFill {
+  fill: #99aab5;
+}
+.whiteFill {
+  fill: white;
+}
+
+.logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  /* margin-right: -0.5rem; */
+  fill: #99aab5;
+  transition: all 0.15s ease-in;
+}
+.logo:hover,
+.logo:focus {
+  fill: white;
+  transition: all 0.15s ease-in;
+}
+.logo .name {
+  font-size: 0.6rem;
+  text-align: center;
+  color: #99aab5;
+  margin: 0;
+  padding: 0;
+  transition: all 0.15s ease-in;
+}
+.logo:hover .name {
+  color: white;
+  transition: all 0.15s ease-in;
+}
+
+.test-svg {
+  width: 100%;
+  padding-bottom: 92%;
+  height: 1px;
+  overflow: visible;
 }
 
 .gitStats {
-    color: #99AAB5; 
-    transition: color .15s ease-in;
+  color: #99aab5;
+  transition: color 0.15s ease-in;
 }
-.gitStats:hover, .gitStats:focus {    
-    color: white; 
-    transition: color .15s ease-in;
-}
-
-.circle { 
-    fill: #99AAB5; 
-}
-.circle:hover, .circle:focus {
-    fill: #2C2F33;
+.gitStats:hover,
+.gitStats:focus {
+  color: white;
+  transition: color 0.15s ease-in;
 }
 
-/* .resumeBtn {    
+.circle {
+  fill: #99aab5;
+}
+.circle:hover,
+.circle:focus {
+  fill: #2c2f33;
+}
+
+/* .resumeBtn {
   padding: 14px 42px;
   border-radius: 3px;
   cursor: pointer;
   outline: none;
   background-color: #99AAB5;
-  color: #23272A; 
+  color: #23272A;
   box-shadow:2px 2px 8px 0px rgba( 0, 0, 0, 0.2 );
   transition: all .15s ease-in;
 }
 
 .resumeBtn:hover, .resumeBtn:focus {
-    color: #23272A; 
+    color: #23272A;
     background-color: white;
-    transform: translateY(-2px);  	
+    transform: translateY(-2px);
     box-shadow:2px 2px 12px 0px rgba( 0, 0, 0, 0.2 );
     transition: all .15s ease-in;
 } */
 
 .social-media {
-    width: 3rem;
-    height: 3rem;
-    margin-right: -0.5rem;
-    fill: #99AAB5; 
-    transition: all .15s ease-in;
-    /* animation: socialMediaHover .15s ease-in 0 1 normal none paused; */
+  width: 3rem;
+  height: 3rem;
+  margin-right: -0.5rem;
+  fill: #99aab5;
+  transition: all 0.15s ease-in;
+  /* animation: socialMediaHover .15s ease-in 0 1 normal none paused; */
 }
-  
-.social-media:hover, .social-media:focus {
-    fill: white;
-    transition: all .15s ease-in;
-    /* animation: socialMediaHover .15s ease-in 0 1 normal none running; */
+
+.social-media:hover,
+.social-media:focus {
+  fill: white;
+  transition: all 0.15s ease-in; /* animation: socialMediaHover .15s ease-in 0 1 normal none running; */
 }
 
 /* @keyframes socialMediaHover {
@@ -85,13 +131,29 @@
 } */
 
 .project {
-    background-image: linear-gradient(-80deg, #23272A, #2C2F33); 
-    box-shadow:2px 2px 8px 0px rgba( 0, 0, 0, 0.2 );
-    transition: all .15s ease-in;
+  background-image: linear-gradient(-80deg, #23272a, #2c2f33);
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.15s ease-in;
 }
-.project:hover, .project:focus {
-    transform: translateY(-5px);
-    background-blend-mode: screen;
-    box-shadow:2px 2px 12px 0px rgb( 0, 0, 0, 0.2 );
-    transition: all .15s ease-in;
-} 
+.project:hover,
+.project:focus {
+  transform: translateY(-5px);
+  background-blend-mode: screen;
+  box-shadow: 2px 2px 12px 0px rgb(0, 0, 0, 0.2);
+  transition: all 0.15s ease-in;
+}
+
+/*
+ * Utility class to hide content visually while keeping it screen reader-accessible.
+ * Source: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+ */
+
+.screen-reader-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

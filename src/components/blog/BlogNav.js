@@ -1,31 +1,31 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
-import 'tachyons'
+import "tachyons"
 import "../styles/colors.css"
+import Link from "../LinkWithPrevPath"
 
-const Title = styled.h3.attrs({
-    className: `center w-100 mv4 lh-copy`
+const Title = styled.h1.attrs({
+  className: `lh-title`,
 })``
 
-const BlogLink = styled(Link)`
-    text-decoration: none;
-    color: white;
-    transition: color .15s ease-in;
+const BlogNav = ({ location }) => {
+  const prevPath =
+    location && location.state ? location.state.prevPath : "/home"
+  const currPath =
+    location && location.state ? location.state.pathname : "/blog"
+  return (
+    <>
+      <p className="mb4 lh-copy">
+        {prevPath === "/blog" ? (
+          <Link to="/blog">← Back to blog</Link>
+        ) : (
+          <Link to="/">← Back to home</Link>
+        )}
+      </p>
 
-    &:hover {
-        color: #99AAB5;
-        transition: color .15s ease-in;
-    }
-`
-
-const BlogNav = () => {
-    return(
-        <>
-            <BlogLink to="/">Back to Home</BlogLink>
-            <BlogLink to="/blog"><Title>Emily's Thoughts.</Title></BlogLink>
-        </>
-    )
+      {currPath === "/blog" ? <Title>Blog</Title> : ""}
+    </>
+  )
 }
 
 export default BlogNav
