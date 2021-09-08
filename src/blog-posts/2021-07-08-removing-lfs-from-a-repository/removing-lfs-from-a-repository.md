@@ -1,26 +1,25 @@
 ---
-slug: on-removing-lfs
+slug: removing-lfs-from-a-repository
 date: 2021-07-08
-title: "On removing LFS"
+title: "Removing LFS from a repository"
 published: false
 ---
 
 ## Background
 
-My final year project was about observing how much bias can be introduced into a GRU4Rec news recommender system using a reinforcement learning framework called PoisonRec. It involved processing large datasets into pickle files readable by the recommender system.
+My final year project involved processing large datasets into pickle files readable by a GR4Rec-based recommender system.
 
-Originally, the repository (~2.5GBs) was hosted on my school's GitLab server and I used Git Large File Storage to manage the datasets. However, as I attempted to migrate the repository to GitHub, I realized this exceeded GitHub's LFS limit of 1GB. Unwilling to buy extra storage, I turned to Google & Stack Overflow. This post serves as a record of what I did, mostly for my future reference.
+Originally, the repository (~2.5GBs) was hosted on my school's GitLab server and I used Git Large File Storage to manage the datasets. However, as I attempted to migrate the repository to GitHub, I realized this exceeded GitHub's LFS limit of 1GB. Unwilling to buy extra storage, I turned to Google & Stack Overflow.
 
 <!-- In theory, the code should reproduce the pickle files used in the project. As stated by GitHub, it shouldn't be used to host large datasets anyways. Previous attempts to only push the LFS pointers failed.  -->
 
-It would be easier to make a new repository and push all relevant files to GitHub, but I wanted to use this opportunity to figure out more aspects of Git & LFS.
-
+It would be easier to make a new repository and push all relevant files to GitHub, but I wanted to use this opportunity to figure out more aspects of Git & LFS. This post serves as a record of what I did, mostly for my future reference.
 
 ## Removing LFS files
 
 ### 1. Clone the repository and head to its directory
 
-```
+```bash
 git clone <repo.git>
 cd <repo>/
 ```
@@ -29,19 +28,19 @@ cd <repo>/
 ### 2. Remove known files from the repo's history.
 
 Suppose `A.pkl` and `B.pkl` have to be removed. This command removes both of them in one go:
-```
+```bash
 git filter-branch --force --index-filter \
 "git rm --cached --ignore-unmatch <A.pkl> <B.pkl>" \
 --prune-empty --tag-name-filter cat -- --all
 ```
 
-Should you want to remove an entire folder, add a `-r` flag to the second line. This recursively removes the folder an its contents, nested folders and all. Please double check your paths before hitting enter.
+Should you want to remove an entire folder, add a `-r` flag to the second line. This recursively removes the folder and its contents, nested folders and all. Do double check your paths before hitting enter.
 
 [Reference](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository#using-filter-branch)
 
 ### 3. These files leave behind some large .pack files... let's clean them up.
 
-```
+```bash
 git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
 git reflog expire --expire=now --all
 git gc --aggressive --prune=now
@@ -53,14 +52,14 @@ git gc --aggressive --prune=now
 ### Finding large files throughout the repository's history
 
 Repository is still huge? Check the repo history for the largest forgotten files via:
-```
+```bash
 $ git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -1
 > 56f11b82847fac0fd94d7dfed7980f7bb6270e70 blob   89095702 17777154 824227216
 ```
 
 The first column, e.g. `56f11b82847fac0fd94d7dfed7980f7bb6270e70`, is a representation of a file. To find the file, run
 
-```
+```bash
 $ git rev-list --objects --all | grep 56f11b82847fac0fd94d7dfed7980f7bb6270e70
 > 56f11b82847fac0fd94d7dfed7980f7bb6270e70 very_large_dataset.pkl
 ```
@@ -71,8 +70,9 @@ We can see that `very_large_dataset.pkl` is another large pickle file we didn't 
 
 ## End
 
-After you're happy with the state of the repository, push it to remote. In my case, I made a new repository on GitHub and pushed there.
-```
+After you're happy with the state of the repository, push it to remote. In my case, I made a new repository on GitHub and pushed it there.
+
+```bash
 git remote add github <repo.git>
 git push -u github main
 ```
