@@ -16,7 +16,7 @@ import "./styles/colors.css"
  */
 
 const Container = styled.div.attrs({
-  className: `h-100 center flex flex-wrap flex-row items-stretch justify-center darkerBG whiteText`,
+  className: `h-100 center darkerBG whiteText`,
 })`
   max-width: 42rem;
   padding: 0 2rem;
@@ -188,6 +188,15 @@ const Projects = () => {
           </Project>
         ))}
       </ProjectGrid>
+      <p className="mv3">
+        <a
+          href="https://github.com/lxemily"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          View more projects →
+        </a>
+      </p>
     </Container>
   )
 }

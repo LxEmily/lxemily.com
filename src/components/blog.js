@@ -65,7 +65,7 @@ const Blog = () => {
           ))}
 
           <ViewBlog>
-            <Link to="/blog">View more →</Link>
+            <Link to="/blog">View more posts →</Link>
           </ViewBlog>
         </IndexBlogContainer>
       )}
