@@ -103,7 +103,7 @@ module.exports = {
       resolve: `gatsby-plugin-umami`,
       options: {
         websiteId: "9724ef4e-881b-48c7-9734-bdb02219c92e",
-        srcUrl: "https://lxemily-umami.herokuapp.com/",
+        srcUrl: "https://lxemily-umami.herokuapp.com/umami.js",
         includeInDevelopment: false,
         autoTrack: true,
         respectDoNotTrack: true,
