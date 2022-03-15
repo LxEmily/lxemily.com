@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import "tachyons"
 import LogoLink from "../components/icons/logoLink"
-import Icons from "../components/icons/icons.js"
 import "./styles/colors.css"
 
 /** Projects Section
@@ -61,22 +60,6 @@ const Desc = styled.p.attrs({
 
 const Footer = styled.div.attrs({
   className: `flex flex-nowrap flex-column order-2`,
-})``
-
-const Stars = styled.span.attrs({
-  className: `ph2 flex flex-nowrap items-center code logo gitStats`,
-})``
-
-const Forks = styled.span.attrs({
-  className: `ph2 flex flex-nowrap items-center code logo gitStats`,
-})``
-
-const FlexRow = styled.div.attrs({
-  className: `flex flex-nowrap flex-row`,
-})``
-
-const FlexEnd = styled.span.attrs({
-  className: `flex flex-nowrap flex-row justify-end`,
 })``
 
 const Tech = styled.span.attrs({
@@ -148,7 +131,6 @@ const Projects = () => {
         {edges.map(({ node }) => (
           <Project key={node.id}>
             <Header>
-              {/* <FlexRow> */}
               <NameContainer>{node.name}</NameContainer>
               <div className="flex flex-row items-center justify-center">
                 {node.url && <LogoLink name="Github" url={node.url} />}
@@ -156,7 +138,6 @@ const Projects = () => {
                   <LogoLink name="External" url={node.homepageUrl} />
                 )}
               </div>
-              {/* </FlexRow> */}
             </Header>
 
             <Content>
@@ -164,25 +145,10 @@ const Projects = () => {
             </Content>
 
             <Footer>
-              {/* <FlexEnd>
-                <FlexRow>
-                  <Stars title="GitHub Stars">
-                    <Icons name="GithubStar" />
-                    {node.stargazerCount}
-                  </Stars>
-                  <Forks title="GitHub Forks">
-                    <Icons name="GithubFork" />
-                    {node.forkCount}
-                  </Forks>
-                </FlexRow>
-              </FlexEnd> */}
               <TechList>
                 {node.repositoryTopics.edges.map((topics, i) => (
                   <Tech key={i}>{topics.node.topic.name}</Tech>
                 ))}
-                {/* {node.languages.edges.map((lang, i) => (
-                  <Tech key={i}>{lang.node.name.toLowerCase()}</Tech>
-                ))} */}
               </TechList>
             </Footer>
           </Project>
