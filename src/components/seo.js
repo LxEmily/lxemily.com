@@ -11,7 +11,14 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import siteImg from "../images/website.png"
 
-function SEOComponent({ description, image, meta, title, url, type }) {
+function SEOComponent({
+  description,
+  image,
+  meta,
+  title = "",
+  url = "",
+  type,
+}) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -34,18 +41,19 @@ function SEOComponent({ description, image, meta, title, url, type }) {
   )
 
   // use specific metadata passed into this component, or the default one if none is passed
-  const desc = description || site.siteMetadata.description
-  const img = image || siteImg
-  const name = (title ? `${title} | ${site.siteMetadata.title}` : site.siteMetadata.title)
-  const link = `${site.siteMetadata.siteUrl}${url}` || site.siteMetadata.siteUrl
-  const contentType = type || `website`
-  const lang = site.siteMetadata.language || `en`
+  const desc = description ?? site.siteMetadata.description
+  const img = image ?? siteImg
+  const name = title
+    ? `${title} | ${site.siteMetadata.title}`
+    : site.siteMetadata.title
+  const link = `${site.siteMetadata.siteUrl}${url}` ?? site.siteMetadata.siteUrl
+  const contentType = type ?? `website`
+  const lang = site.siteMetadata.language ?? `en`
 
   return (
     <Helmet
       htmlAttributes={{ lang }}
-      title={ name }
-      // titleTemplate={ `%s | ${ site.siteMetadata.title }` }
+      title={name}
       meta={[
         {
           name: `description`,
@@ -53,15 +61,15 @@ function SEOComponent({ description, image, meta, title, url, type }) {
         },
         {
           name: `keywords`,
-          content: site.siteMetadata.keywords
+          content: site.siteMetadata.keywords,
         },
         {
           name: `image`,
-          content: img
+          content: img,
         },
         {
           property: `og:url`,
-          content: link
+          content: link,
         },
         {
           property: `og:title`,
@@ -81,23 +89,23 @@ function SEOComponent({ description, image, meta, title, url, type }) {
         },
         {
           property: `og:image`,
-          content: img
+          content: img,
         },
         {
           property: `og:locale`,
-          content: lang
+          content: lang,
         },
         {
           itemProp: `name`,
-          content: name
+          content: name,
         },
         {
           itemProp: `description`,
-          content: desc
+          content: desc,
         },
         {
           itemProp: `image`,
-          content: img
+          content: img,
         },
         {
           name: `twitter:card`,
@@ -113,11 +121,11 @@ function SEOComponent({ description, image, meta, title, url, type }) {
         },
         {
           name: `twitter:site`,
-          content: site.siteMetadata.social.twitter
+          content: site.siteMetadata.social.twitter,
         },
         {
           name: `twitter:url`,
-          content: link
+          content: link,
         },
         {
           name: `twitter:description`,
@@ -125,11 +133,11 @@ function SEOComponent({ description, image, meta, title, url, type }) {
         },
         {
           name: `twitter:image`,
-          content: img
+          content: img,
         },
         {
           name: `twitter:image:alt`,
-          content: name
+          content: name,
         },
       ].concat(meta)}
     />
