@@ -2,7 +2,7 @@
   "meta": {
     "author": "Emily Liew",
     "siteTitle": "Emily Liew",
-    "siteDescription": "Software engineer seeking full time roles in Dublin, Ireland. Alumni of UCD Computer Science, UCD Netsoc, and Ding.com. (she/her).",
+    "siteDescription": "Software engineer at Tines. Alumni of UCD Computer Science, UCD Netsoc, and Ding.com. (she/her).",
     "siteKeywords": [
       "Emily Liew",
       "Emily",
@@ -13,9 +13,7 @@
       "computer science",
       "web developer",
       "刘萱",
-      "劉萱",
-      "UCD",
-      "Netsoc"
+      "劉萱"
     ],
     "siteUrl": "https://lxemily.com",
     "siteLanguage": "en",
@@ -25,7 +23,7 @@
   "home": {
     "section": "Home",
     "name": "Emily Liew Xuan.",
-    "desc": "Software engineer seeking full-time roles in Dublin, Ireland. Alumni of UCD Computer Science, UCD Netsoc, and Ding.com. (she/her)."
+    "desc": "Software engineer at Tines. Alumni of UCD Computer Science, UCD Netsoc, and Ding.com. (she/her)."
   },
 
   "nav": {

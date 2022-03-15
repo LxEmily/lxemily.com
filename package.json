@@ -1,7 +1,7 @@
 {
   "name": "lxemily.com",
   "private": true,
-  "description": "Personal Website/Portfolio",
+  "description": "Personal Website",
   "version": "0.1.0",
   "author": "Emily Liew <emily@lxemily.com>",
   "dependencies": {
