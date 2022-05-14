@@ -103,7 +103,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: "Fantasque Sans Mono", "Inconsolata", monospace;
+  font-family: "TypoPRO Fantasque Sans Mono", "Fantasque Sans Mono", "Inconsolata", monospace;
   font-size: 1em;
 }
 figure {
@@ -521,7 +521,7 @@ td:last-child {
   padding-right: 0;
 }
 code {
-  font-family: "Fantasque Sans Mono", "Inconsolata", "SFMono-Regular", Consolas,
+  font-family: "TypoPRO Fantasque Sans Mono", "Fantasque Sans Mono", "Inconsolata", "SFMono-Regular", Consolas,
     "Roboto Mono", "Droid Sans Mono", "Liberation Mono", Menlo, Courier,
     monospace;
 }

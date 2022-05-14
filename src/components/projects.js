@@ -69,9 +69,9 @@ const Tech = styled.span.attrs({
 const TechList = styled.div.attrs({
   className: `flex flex-wrap flex-row grayerText`,
 })`
-  font-family: "Fantasque Sans Mono", "Inconsolata", "SFMono-Regular", Consolas,
-    "Roboto Mono", "Droid Sans Mono", "Liberation Mono", Menlo, Courier,
-    monospace;
+  font-family: "TypoPRO Fantasque Sans Mono", "Fantasque Sans Mono",
+    "Inconsolata", "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
+    "Liberation Mono", Menlo, Courier, monospace;
   font-size: 0.8em;
 `
 
