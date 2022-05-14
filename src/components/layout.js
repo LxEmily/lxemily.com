@@ -11,7 +11,7 @@ import PropTypes from "prop-types"
 import "./styles/layout.css"
 import "./styles/colors.css"
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -25,7 +25,7 @@ const Layout = ({children}) => {
   return (
     <>
       {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-        <main>{children}</main>
+      <main>{children}</main>
     </>
   )
 }
