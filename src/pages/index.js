@@ -7,15 +7,11 @@ import Footer from "../components/footer"
 import SEOComponent from "../components/seo"
 
 import "@fontsource/inter"
-require('typeface-raleway')
-require('typeface-inconsolata')
+import "typeface-inconsolata"
 
 const IndexPage = () => (
   <Layout>
-    <SEOComponent
-      title=""
-      url=""
-    />
+    <SEOComponent title="" url="" />
     <Home />
     <Projects />
     <Blog />
