@@ -9,7 +9,7 @@
     "@typopro/web-fantasque-sans-mono": "^3.7.5",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
-    "fs": "^0.0.1-security",
+    "fs": "^0.0.2",
     "gatsby": "^4.24.7",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-google-analytics": "^4.24.0",
