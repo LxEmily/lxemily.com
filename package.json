@@ -11,6 +11,7 @@
     "dotenv": "^16.0.3",
     "fs": "^0.0.2",
     "gatsby": "^5.2.0",
+    "gatsby-core-utils": "^4.2.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-google-analytics": "^5.0.0",
     "gatsby-plugin-manifest": "^5.0.0",
