@@ -146,6 +146,7 @@ function SEOComponent({
 
 SEOComponent.defaultProps = {
   lang: `en`,
+  meta: [],
 }
 
 SEOComponent.propTypes = {
