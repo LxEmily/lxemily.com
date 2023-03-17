@@ -28,10 +28,7 @@ const Blog = () => {
     <StaticQuery
       query={graphql`
         query {
-          allMarkdownRemark(
-            limit: 3
-            sort: { fields: [frontmatter___date], order: DESC }
-          ) {
+          allMarkdownRemark(limit: 3, sort: { frontmatter: { date: DESC } }) {
             totalCount
             edges {
               node {

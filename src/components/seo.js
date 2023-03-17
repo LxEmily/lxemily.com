@@ -147,15 +147,14 @@ function SEOComponent({
 SEOComponent.defaultProps = {
   lang: `en`,
   meta: [],
-  description: ``,
 }
 
 SEOComponent.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  url: PropTypes.string,
 }
 
 export default SEOComponent
