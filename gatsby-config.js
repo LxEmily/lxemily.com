@@ -114,7 +114,6 @@ module.exports = {
         trackingIds: [config.meta.googleTag],
         gtagConfig: {
           anonymize_ip: true,
-          cookie_expires: 0,
         },
         pluginConfig: {
           respectDNT: true,
