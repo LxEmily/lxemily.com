@@ -1,6 +1,6 @@
 const config = require("./src/content/content.json")
 
-require('dotenv').config()
+require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
@@ -13,8 +13,8 @@ module.exports = {
     social: {
       twitter: config.contact.handles.twitter,
       github: config.contact.handles.github,
-      email: config.contact.handles.email
-    }
+      email: config.contact.handles.email,
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -45,22 +45,22 @@ module.exports = {
       },
     },
     {
-			resolve: `gatsby-source-graphql`,
-			options: {
-				typeName: `GitHub`,
-				fieldName: 'github',
-				url: `https://api.github.com/graphql`,
-				headers: {
-					Authorization: `bearer ${process.env.GITHUB_TOKEN}`, //
-				},
-				fetchOptions: {},
-			},
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `GitHub`,
+        fieldName: "github",
+        url: `https://api.github.com/graphql`,
+        headers: {
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`, //
+        },
+        fetchOptions: {},
+      },
     },
     {
-			resolve: 'gatsby-plugin-sitemap',
-			options: {
-				createLinkInHead: true,
-			},
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        createLinkInHead: true,
+      },
     },
     `gatsby-plugin-robots-txt`,
     /* Gets data inside files
@@ -70,22 +70,22 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-        {
-          resolve: "gatsby-remark-external-links",
-          options: {
-            target: "_blank",
-            rel: "nofollow noopener noreferrer"
-          }
-        },
-        {
-          resolve: `gatsby-remark-prismjs`,
-          options: {
-            noInlineHighlight: false,
-            inlineCodeMarker: `±`,
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "nofollow noopener noreferrer",
+            },
           },
-        }
-        ]
-      }
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: false,
+              inlineCodeMarker: `±`,
+            },
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -106,6 +106,18 @@ module.exports = {
         trackingId: config.meta.googleAnalytics,
         anonymize: true,
         respectDNT: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [config.meta.googleTag],
+        gtagConfig: {
+          anonymize_ip: true,
+        },
+        pluginConfig: {
+          respectDNT: true,
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
