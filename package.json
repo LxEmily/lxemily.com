@@ -7,7 +7,7 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.15",
     "@typopro/web-fantasque-sans-mono": "^3.7.5",
-    "date-fns": "^2.29.3",
+    "date-fns": "^2.30.0",
     "dotenv": "^16.0.3",
     "fs": "^0.0.2",
     "gatsby": "^5.9.0",
