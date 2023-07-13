@@ -8,7 +8,7 @@
     "@fontsource/inter": "^5.0.3",
     "@typopro/web-fantasque-sans-mono": "^3.7.5",
     "date-fns": "^2.30.0",
-    "dotenv": "^16.1.4",
+    "dotenv": "^16.3.1",
     "fs": "^0.0.2",
     "gatsby": "^5.11.0",
     "gatsby-core-utils": "^4.11.0",
@@ -38,13 +38,13 @@
     "react-helmet": "^6.1.0",
     "react-is": "^18.2.0",
     "slug": "^8.2.2",
-    "styled-components": "^5.3.11",
+    "styled-components": "^6.0.2",
     "trim": "^1.0.1",
     "typeface-inconsolata": "^1.1.13",
     "typeface-raleway": "^1.1.13"
   },
   "devDependencies": {
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.0",
     "tachyons": "^4.12.0"
   },
   "keywords": [
