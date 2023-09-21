@@ -38,7 +38,7 @@
     "react-helmet": "^6.1.0",
     "react-is": "^18.2.0",
     "slug": "^8.2.3",
-    "styled-components": "^6.0.7",
+    "styled-components": "^6.0.8",
     "trim": "^1.0.1",
     "typeface-inconsolata": "^1.1.13",
     "typeface-raleway": "^1.1.13"
