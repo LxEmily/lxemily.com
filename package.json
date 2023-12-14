@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Emily Liew <emily@lxemily.com>",
   "dependencies": {
-    "@fontsource/inter": "^5.0.15",
+    "@fontsource/inter": "^5.0.16",
     "@typopro/web-fantasque-sans-mono": "^3.7.5",
     "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
