@@ -10,7 +10,7 @@
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "fs": "^0.0.2",
-    "gatsby": "^5.13.4",
+    "gatsby": "^5.13.5",
     "gatsby-core-utils": "^4.13.1",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-google-analytics": "^5.13.1",
